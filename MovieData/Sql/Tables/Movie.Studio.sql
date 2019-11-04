@@ -1,0 +1,10 @@
+﻿IF OBJECT_ID(N'Movie.Studio') IS NULL
+BEGIN
+   CREATE TABLE Movie.Studio
+   (
+      StudioId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	  StudioName NVARCHAR(128) NOT NULL UNIQUE,
+	  DateEstablished DATE NOT NULL,
+	  Location NVARCHAR(128) NOT NULL
+   );
+END;

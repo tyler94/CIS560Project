@@ -1,0 +1,8 @@
+﻿IF OBJECT_ID(N'Movie.Genre') IS NULL
+BEGIN
+   CREATE TABLE Movie.Genre
+   (
+      GenreId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	  GenreName NVARCHAR(128) NOT NULL UNIQUE
+   );
+END;
