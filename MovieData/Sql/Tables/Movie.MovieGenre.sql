@@ -5,7 +5,7 @@ BEGIN
 	  MovieId INT NOT NULL FOREIGN KEY
 		REFERENCES Movie.Movie(MovieId),
 	  GenreId INT NOT NULL FOREIGN KEY
-		REFERENCES Movie.Genre(GenreId)
+		REFERENCES Movie.Genre(GenreId),
 		
 	  PRIMARY KEY(MovieId, GenreId)
    );

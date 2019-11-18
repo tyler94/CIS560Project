@@ -1,0 +1,5 @@
+C:\Users\Tyler\Desktop\CIS560\MovieDB\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Tyler\Desktop\CIS560\MovieDB\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Tyler\Desktop\CIS560\MovieDB\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Tyler\Desktop\CIS560\MovieDB\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Tyler\Desktop\CIS560\MovieDB\DataAccess\obj\Debug\DataAccess.pdb

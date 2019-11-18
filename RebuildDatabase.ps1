@@ -1,6 +1,6 @@
 Param(
-   [string] $Server = "(localdb)\MSSQLLocalDb",
-   [string] $Database = "tyler94"
+   [string] $Server = "(localdb)\tyler94",
+   [string] $Database = "master"
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -19,22 +19,22 @@ Write-Host ""
 Write-Host "Rebuilding database $Database on $Server..."
 
 Write-Host "Dropping tables..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\DropTables.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\DropTables.sql"
 
 Write-Host "Creating schema..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Schemas\Movie.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Schemas\Movie.sql"
 
 Write-Host "Creating tables..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.CustomerCategory.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Customer.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Director.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Studio.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Genre.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Actor.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Movie.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Cast.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.MovieGenre.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Tables\Movie.Viewing.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.CustomerCategory.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Customer.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Director.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Studio.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Genre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Actor.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Movie.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Cast.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.MovieGenre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieData\Sql\Tables\Movie.Viewing.sql"
 
 
 
