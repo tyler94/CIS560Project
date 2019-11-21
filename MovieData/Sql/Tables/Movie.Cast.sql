@@ -6,7 +6,7 @@ BEGIN
 		REFERENCES Movie.Movie(MovieId),
 	  ActorId INT NOT NULL FOREIGN KEY
 		REFERENCES Movie.Actor(ActorId),
-	  Role NVARCHAR(128) NOT NULL UNIQUE,
+	  Role NVARCHAR(128) UNIQUE,
 		
 	  PRIMARY KEY(MovieId, ActorId)
    );

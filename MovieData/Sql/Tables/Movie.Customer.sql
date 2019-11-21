@@ -4,7 +4,7 @@ BEGIN
    (
       CustomerId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	  FullName NVARCHAR(128) NOT NULL UNIQUE,
-	  CustomerCategoryId INT NOT NULL FOREIGN KEY
+	  CustomerCategoryId INT FOREIGN KEY
 		REFERENCES Movie.CustomerCategory(CustomerCategoryId)
    );
 END;

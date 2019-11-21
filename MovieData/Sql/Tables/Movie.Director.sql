@@ -4,8 +4,7 @@ BEGIN
    (
       DirectorId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	  FullName NVARCHAR(128) NOT NULL UNIQUE,
-	  DateOfBirth DATE NOT NULL,
-	  Birthplace NVARCHAR(128) NOT NULL,
-	  Awards NVARCHAR(128) NOT NULL
+	  DateOfBirth DATE,
+	  Birthplace NVARCHAR(128)
    );
 END;
