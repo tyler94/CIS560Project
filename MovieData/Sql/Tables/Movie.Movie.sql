@@ -3,7 +3,7 @@ BEGIN
    CREATE TABLE Movie.Movie
    (
       MovieId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	  MovieName NVARCHAR(128) NOT NULL UNIQUE,
+	  MovieName NVARCHAR(128) NOT NULL,
 	  DirectorId INT FOREIGN KEY
 		REFERENCES Movie.Director(DirectorId),
 	  ProductionCompanyId INT FOREIGN KEY

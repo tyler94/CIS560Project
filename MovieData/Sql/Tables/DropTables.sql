@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS Movie.Cast;
 DROP TABLE IF EXISTS Movie.Movie;
 DROP TABLE IF EXISTS Movie.Actor;
 DROP TABLE IF EXISTS Movie.Genre;
-DROP TABLE IF EXISTS Movie.Studio;
+DROP TABLE IF EXISTS Movie.ProductionCompany;
 DROP TABLE IF EXISTS Movie.Director;
 DROP TABLE IF EXISTS Movie.Customer;
 DROP TABLE IF EXISTS Movie.CustomerCategory;
