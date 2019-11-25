@@ -6,3 +6,14 @@ C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieThe
 C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.csproj.GenerateResource.Cache
 C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.exe
 C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.pdb
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.exe.config
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.exe
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.pdb
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.csprojAssemblyReference.cache
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.ActiveMoviesForm.resources
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.StatisticsForm.resources
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.TheaterNavigationForm.resources
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.Properties.Resources.resources
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.csproj.GenerateResource.cache
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.exe
+C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.pdb

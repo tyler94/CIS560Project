@@ -16,5 +16,6 @@ namespace MovieTheaterApplication
         {
             InitializeComponent();
         }
+
     }
 }

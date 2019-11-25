@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActiveMoviesForm.resx">
+      <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatisticsForm.resx">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TheaterNavigationForm.resx">
       <DependentUpon>TheaterNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
