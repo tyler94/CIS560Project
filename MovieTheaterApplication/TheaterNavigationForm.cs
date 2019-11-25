@@ -17,7 +17,7 @@ namespace MovieTheaterApplication
         {
             InitializeComponent();
             this.Show();
-            if(!Bridge.Connect("(LocalDb)\\560Project", "560Database"))
+            if(!Bridge.Connect("(LocalDb)\\560Project", "master"))
             {
                 MessageBox.Show("Connection failed!");
             }
