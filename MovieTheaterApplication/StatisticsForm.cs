@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
-    public partial class Form1 : Form
+    public partial class StatisticsForm : Form
     {
-        public Form1()
+        public StatisticsForm()
         {
             InitializeComponent();
         }
+
     }
 }
