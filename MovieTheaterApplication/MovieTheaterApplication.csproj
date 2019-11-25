@@ -52,11 +52,18 @@
     <Compile Include="ActiveMoviesForm.Designer.cs">
       <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bridge.cs" />
     <Compile Include="EditShowingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditShowingsForm.Designer.cs">
       <DependentUpon>EditShowingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StatisticsForm.cs">
       <SubType>Form</SubType>
@@ -77,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditShowingsForm.resx">
       <DependentUpon>EditShowingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
