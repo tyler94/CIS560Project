@@ -7,6 +7,6 @@ BEGIN
 		REFERENCES Movie.Customer(CustomerId),
 	  MovieId INT NOT NULL FOREIGN KEY
 		REFERENCES Movie.Movie(MovieId),
-	  ViewingDate DATETIME NOT NULL,
+	  ViewedOn DATETIME NOT NULL,
    );
 END;

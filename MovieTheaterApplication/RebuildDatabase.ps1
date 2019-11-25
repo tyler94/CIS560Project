@@ -88,15 +88,59 @@ Import-Csv -Path Desktop\CIS560\MovieDB\MovieTheaterApplication\csvs\actorsnodup
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.actor_2_name)' <> '') BEGIN insert into Movie.Cast (MovieId, ActorId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT ActorId FROM Movie.Actor WHERE FullName = '$($_.actor_2_name)'))END"
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.actor_3_name)' <> '') BEGIN insert into Movie.Cast (MovieId, ActorId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT ActorId FROM Movie.Actor WHERE FullName = '$($_.actor_3_name)'))END"
   }
+  
+  Import-Csv -Path Desktop\CIS560\MovieDB\MovieTheaterApplication\csvs\viewings.csv | ForEach-Object {
+  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "insert into Movie.Viewing (MovieId, CustomerId, ViewedOn) VALUES ('$($_.MovieId)', '$($_.CustomerId)', '$($_.ViewedOn)')"
+  }
 
 
 #Write-Host "Stored procedures..."
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.CreateMovie.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.RetrieveMovies.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.FetchMovie.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMovie.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.SaveMovieAddress.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.RetrieveAddressesForMovie.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie.GetBusiestMonths.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie.GetMostViewedGenres.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie.GetMostViewedMovies.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie.GetMovieDemographic.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie.GetTopGrossingMovies.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.CreateViewing.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.FetchViewing.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.GetViewing.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.RetrieveViewings.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.SaveViewing.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\ProductionCompany\Movie.CreateProductionCompany.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\ProductionCompany\Movie.FetchProductionCompany.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\ProductionCompany\Movie.GetProductionCompany.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\ProductionCompany\Movie.RetrieveProductionCompanies.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\ProductionCompany\Movie.SaveProductionCompany.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.CreateMovie.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.FetchMovie.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMovie.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.Movies.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.SaveMovie.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Genre\Movie.CreateGenre.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Genre\Movie.FetchGenre.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Genre\Movie.GetGenre.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Genre\Movie.Genres.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Genre\Movie.SaveGenre.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Director\Movie.CreateDirector.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Director\Movie.FetchDirector.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Director\Movie.GetDirector.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Director\Movie.Directors.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Director\Movie.SaveDirector.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Customer\Movie.CreateCustomer.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Customer\Movie.FetchCustomer.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Customer\Movie.GetCustomer.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Customer\Movie.Customers.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Customer\Movie.SaveCustomer.sql"
+#
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Actor\Movie.CreateActor.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Actor\Movie.FetchActor.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Actor\Movie.GetActor.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Actor\Movie.Actors.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Actor\Movie.SaveActor.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""

@@ -1,1 +1,8 @@
 C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.exe.config
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.exe
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\bin\Debug\MovieTheaterApplication.pdb
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.csprojResolveAssemblyReference.cache
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.Properties.Resources.resources
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.csproj.GenerateResource.Cache
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.exe
+C:\Users\Tyler\Desktop\CIS560\MovieDB\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.pdb
