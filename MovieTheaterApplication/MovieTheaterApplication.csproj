@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ActiveMoviesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ActiveMoviesForm.Designer.cs">
+      <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditShowingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditShowingsForm.Designer.cs">
+      <DependentUpon>EditShowingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatisticsForm.Designer.cs">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheaterNavigationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheaterNavigationForm.Designer.cs">
+      <DependentUpon>TheaterNavigationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="TheaterNavigationForm.resx">
+      <DependentUpon>TheaterNavigationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

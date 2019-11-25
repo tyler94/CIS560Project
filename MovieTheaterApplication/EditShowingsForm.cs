@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
-    public partial class Form1 : Form
+    public partial class EditShowingsForm : Form
     {
-        public Form1()
+        public EditShowingsForm()
         {
             InitializeComponent();
         }
