@@ -38,7 +38,7 @@
             this.uxInactiveShowings = new System.Windows.Forms.RadioButton();
             this.uxAllMovies = new System.Windows.Forms.RadioButton();
             this.uxSearchButton = new System.Windows.Forms.Button();
-            this.uxSearchOptions = new System.Windows.Forms.ComboBox();
+            this.uxSearchOptionsBox = new System.Windows.Forms.ComboBox();
             this.uxSerachOptionsLabel = new System.Windows.Forms.Label();
             this.uxSearchEntry = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.uxMovieEntries)).BeginInit();
@@ -138,18 +138,18 @@
             this.uxSearchButton.Text = "Search";
             this.uxSearchButton.UseVisualStyleBackColor = true;
             // 
-            // uxSearchOptions
+            // uxSearchOptionsBox
             // 
-            this.uxSearchOptions.FormattingEnabled = true;
-            this.uxSearchOptions.Items.AddRange(new object[] {
+            this.uxSearchOptionsBox.FormattingEnabled = true;
+            this.uxSearchOptionsBox.Items.AddRange(new object[] {
             "None",
             "Movie Title",
             "Movie Director",
             "Movie Genre"});
-            this.uxSearchOptions.Location = new System.Drawing.Point(106, 8);
-            this.uxSearchOptions.Name = "uxSearchOptions";
-            this.uxSearchOptions.Size = new System.Drawing.Size(121, 24);
-            this.uxSearchOptions.TabIndex = 5;
+            this.uxSearchOptionsBox.Location = new System.Drawing.Point(106, 8);
+            this.uxSearchOptionsBox.Name = "uxSearchOptionsBox";
+            this.uxSearchOptionsBox.Size = new System.Drawing.Size(121, 24);
+            this.uxSearchOptionsBox.TabIndex = 5;
             // 
             // uxSerachOptionsLabel
             // 
@@ -168,7 +168,6 @@
             this.uxSearchEntry.Name = "uxSearchEntry";
             this.uxSearchEntry.Size = new System.Drawing.Size(294, 26);
             this.uxSearchEntry.TabIndex = 7;
-            this.uxSearchEntry.Text = "hello";
             // 
             // ActiveMoviesForm
             // 
@@ -177,7 +176,7 @@
             this.ClientSize = new System.Drawing.Size(702, 510);
             this.Controls.Add(this.uxSearchEntry);
             this.Controls.Add(this.uxSerachOptionsLabel);
-            this.Controls.Add(this.uxSearchOptions);
+            this.Controls.Add(this.uxSearchOptionsBox);
             this.Controls.Add(this.uxSearchButton);
             this.Controls.Add(this.uxAllMovies);
             this.Controls.Add(this.uxInactiveShowings);
@@ -203,7 +202,7 @@
         private System.Windows.Forms.RadioButton uxInactiveShowings;
         private System.Windows.Forms.RadioButton uxAllMovies;
         private System.Windows.Forms.Button uxSearchButton;
-        private System.Windows.Forms.ComboBox uxSearchOptions;
+        private System.Windows.Forms.ComboBox uxSearchOptionsBox;
         private System.Windows.Forms.Label uxSerachOptionsLabel;
         private System.Windows.Forms.TextBox uxSearchEntry;
     }
