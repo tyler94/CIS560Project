@@ -1,4 +1,7 @@
-CREATE OR ALTER PROCEDURE Movie.GetMovieDemographic
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMovieDemographic') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.GetMovieDemographic
+GO
+CREATE PROCEDURE Movie.GetMovieDemographic
 AS
 
 WITH TempTable (ViewingId, MovieId, CustomerId, CustomerCategoryId, CategoryName) AS

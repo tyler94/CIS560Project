@@ -1,4 +1,7 @@
-CREATE OR ALTER PROCEDURE Movie.FetchDirector
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.FetchDirector') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.FetchDirector
+GO
+CREATE PROCEDURE Movie.FetchDirector
    @DirectorId INT
 AS
 

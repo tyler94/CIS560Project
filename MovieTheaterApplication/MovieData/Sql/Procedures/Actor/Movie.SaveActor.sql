@@ -1,4 +1,7 @@
-CREATE OR ALTER PROCEDURE Movie.SaveActor
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.SaveActor') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.SaveActor
+GO
+CREATE PROCEDURE Movie.SaveActor
    @ActorId INT ,
    @FullName NVARCHAR(128),
    @DateOfBirth DATE,
