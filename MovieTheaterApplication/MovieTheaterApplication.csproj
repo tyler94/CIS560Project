@@ -52,6 +52,12 @@
     <Compile Include="ActiveMoviesForm.Designer.cs">
       <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMovieForm.Designer.cs">
+      <DependentUpon>AddMovieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bridge.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EditShowingsForm.cs">
@@ -65,6 +71,12 @@
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyMovieForm.Designer.cs">
+      <DependentUpon>ModifyMovieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StatisticsForm.cs">
       <SubType>Form</SubType>
@@ -83,11 +95,17 @@
     <EmbeddedResource Include="ActiveMoviesForm.resx">
       <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddMovieForm.resx">
+      <DependentUpon>AddMovieForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditShowingsForm.resx">
       <DependentUpon>EditShowingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyMovieForm.resx">
+      <DependentUpon>ModifyMovieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>

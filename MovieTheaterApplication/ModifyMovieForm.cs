@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
-    public partial class EditShowingsForm : Form
+    public partial class ModifyMovieForm : Form
     {
-        public EditShowingsForm()
+        public ModifyMovieForm()
         {
             InitializeComponent();
-            uxExecuteButton.Enabled = false;
-        }
-
-        private void uxExecuteButton_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
-            uxExecuteButton.Enabled = true;
+
         }
     }
 }
