@@ -1,4 +1,7 @@
-CREATE OR ALTER PROCEDURE Movie.GetMostViewedGenres
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMostViewedGenres') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.GetMostViewedGenres
+GO
+CREATE PROCEDURE Movie.GetMostViewedGenres
 AS
 
 WITH TempTable (ViewingId, MovieId, CustomerId, CustomerCategoryId, TicketPrice) AS

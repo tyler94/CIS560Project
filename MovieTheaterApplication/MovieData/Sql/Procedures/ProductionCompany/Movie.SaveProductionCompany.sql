@@ -1,11 +1,14 @@
-CREATE OR ALTER PROCEDURE Movie.SaveProductionCompany
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.SaveProductionCompany') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.SaveProductionCompany
+GO
+CREATE PROCEDURE Movie.SaveProductionCompany
    @CompanyId INT ,
    @CompanyName NVARCHAR(128),
    @DateEstablished DATE,
    @Location NVARCHAR(128)
 AS
 
-MERGE Movie.Director A
+MERGE Movie.ProductionCompany A
 USING
       (
          VALUES(@CompanyId, @CompanyName, @DateEstablished, @Location)

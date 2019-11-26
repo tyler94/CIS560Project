@@ -1,4 +1,7 @@
-CREATE OR ALTER PROCEDURE Movie.SaveGenre
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.SaveGenre') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.SaveGenre
+GO
+CREATE PROCEDURE Movie.SaveGenre
    @GenreId INT ,
    @GenreName NVARCHAR(128)
 AS
