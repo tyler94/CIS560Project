@@ -34,13 +34,17 @@
             this.uxPasswordBox = new System.Windows.Forms.TextBox();
             this.uxConnectButton = new System.Windows.Forms.Button();
             this.uxInfoLabel = new System.Windows.Forms.Label();
+            this.uxDatabaseBox = new System.Windows.Forms.TextBox();
+            this.uxServerBox = new System.Windows.Forms.TextBox();
+            this.uxDatabaseLabel = new System.Windows.Forms.Label();
+            this.uxServerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // uxUsernameLabel
             // 
             this.uxUsernameLabel.AutoSize = true;
             this.uxUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxUsernameLabel.Location = new System.Drawing.Point(13, 97);
+            this.uxUsernameLabel.Location = new System.Drawing.Point(12, 133);
             this.uxUsernameLabel.Name = "uxUsernameLabel";
             this.uxUsernameLabel.Size = new System.Drawing.Size(87, 20);
             this.uxUsernameLabel.TabIndex = 0;
@@ -50,7 +54,7 @@
             // 
             this.uxPasswordLabel.AutoSize = true;
             this.uxPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxPasswordLabel.Location = new System.Drawing.Point(13, 134);
+            this.uxPasswordLabel.Location = new System.Drawing.Point(12, 170);
             this.uxPasswordLabel.Name = "uxPasswordLabel";
             this.uxPasswordLabel.Size = new System.Drawing.Size(82, 20);
             this.uxPasswordLabel.TabIndex = 1;
@@ -59,26 +63,26 @@
             // uxUsernameBox
             // 
             this.uxUsernameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxUsernameBox.Location = new System.Drawing.Point(106, 94);
+            this.uxUsernameBox.Location = new System.Drawing.Point(105, 130);
             this.uxUsernameBox.Name = "uxUsernameBox";
-            this.uxUsernameBox.Size = new System.Drawing.Size(219, 26);
+            this.uxUsernameBox.Size = new System.Drawing.Size(239, 26);
             this.uxUsernameBox.TabIndex = 2;
             this.uxUsernameBox.TextChanged += new System.EventHandler(this.uxUsernameBox_TextChanged);
             // 
             // uxPasswordBox
             // 
             this.uxPasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxPasswordBox.Location = new System.Drawing.Point(106, 131);
+            this.uxPasswordBox.Location = new System.Drawing.Point(105, 167);
             this.uxPasswordBox.Name = "uxPasswordBox";
             this.uxPasswordBox.PasswordChar = '•';
-            this.uxPasswordBox.Size = new System.Drawing.Size(219, 26);
+            this.uxPasswordBox.Size = new System.Drawing.Size(239, 26);
             this.uxPasswordBox.TabIndex = 3;
             this.uxPasswordBox.TextChanged += new System.EventHandler(this.uxPasswordBox_TextChanged);
             // 
             // uxConnectButton
             // 
             this.uxConnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxConnectButton.Location = new System.Drawing.Point(239, 185);
+            this.uxConnectButton.Location = new System.Drawing.Point(126, 218);
             this.uxConnectButton.Name = "uxConnectButton";
             this.uxConnectButton.Size = new System.Drawing.Size(103, 29);
             this.uxConnectButton.TabIndex = 4;
@@ -90,18 +94,60 @@
             // 
             this.uxInfoLabel.AutoSize = true;
             this.uxInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxInfoLabel.Location = new System.Drawing.Point(40, 29);
+            this.uxInfoLabel.Location = new System.Drawing.Point(63, 20);
             this.uxInfoLabel.Name = "uxInfoLabel";
             this.uxInfoLabel.Size = new System.Drawing.Size(210, 20);
             this.uxInfoLabel.TabIndex = 5;
             this.uxInfoLabel.Text = "Please login to the database";
+            // 
+            // uxDatabaseBox
+            // 
+            this.uxDatabaseBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxDatabaseBox.Location = new System.Drawing.Point(105, 96);
+            this.uxDatabaseBox.Name = "uxDatabaseBox";
+            this.uxDatabaseBox.Size = new System.Drawing.Size(239, 26);
+            this.uxDatabaseBox.TabIndex = 9;
+            this.uxDatabaseBox.TextChanged += new System.EventHandler(this.uxDatabaseBox_TextChanged);
+            // 
+            // uxServerBox
+            // 
+            this.uxServerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxServerBox.Location = new System.Drawing.Point(105, 59);
+            this.uxServerBox.Name = "uxServerBox";
+            this.uxServerBox.Size = new System.Drawing.Size(239, 26);
+            this.uxServerBox.TabIndex = 8;
+            this.uxServerBox.TextChanged += new System.EventHandler(this.uxServerBox_TextChanged);
+            // 
+            // uxDatabaseLabel
+            // 
+            this.uxDatabaseLabel.AutoSize = true;
+            this.uxDatabaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxDatabaseLabel.Location = new System.Drawing.Point(12, 99);
+            this.uxDatabaseLabel.Name = "uxDatabaseLabel";
+            this.uxDatabaseLabel.Size = new System.Drawing.Size(83, 20);
+            this.uxDatabaseLabel.TabIndex = 7;
+            this.uxDatabaseLabel.Text = "Database:";
+            // 
+            // uxServerLabel
+            // 
+            this.uxServerLabel.AutoSize = true;
+            this.uxServerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxServerLabel.Location = new System.Drawing.Point(12, 62);
+            this.uxServerLabel.Name = "uxServerLabel";
+            this.uxServerLabel.Size = new System.Drawing.Size(59, 20);
+            this.uxServerLabel.TabIndex = 6;
+            this.uxServerLabel.Text = "Server:";
             // 
             // LoginForm
             // 
             this.AcceptButton = this.uxConnectButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 243);
+            this.ClientSize = new System.Drawing.Size(356, 261);
+            this.Controls.Add(this.uxDatabaseBox);
+            this.Controls.Add(this.uxServerBox);
+            this.Controls.Add(this.uxDatabaseLabel);
+            this.Controls.Add(this.uxServerLabel);
             this.Controls.Add(this.uxInfoLabel);
             this.Controls.Add(this.uxConnectButton);
             this.Controls.Add(this.uxPasswordBox);
@@ -110,8 +156,6 @@
             this.Controls.Add(this.uxUsernameLabel);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +169,9 @@
         private System.Windows.Forms.TextBox uxPasswordBox;
         private System.Windows.Forms.Button uxConnectButton;
         private System.Windows.Forms.Label uxInfoLabel;
+        private System.Windows.Forms.TextBox uxDatabaseBox;
+        private System.Windows.Forms.TextBox uxServerBox;
+        private System.Windows.Forms.Label uxDatabaseLabel;
+        private System.Windows.Forms.Label uxServerLabel;
     }
 }

@@ -53,6 +53,7 @@
       <DependentUpon>ActiveMoviesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bridge.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="EditShowingsForm.cs">
       <SubType>Form</SubType>
     </Compile>

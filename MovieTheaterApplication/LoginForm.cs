@@ -14,26 +14,58 @@ namespace MovieTheaterApplication
     {
         Bridge.AuthenticateDelegate authenticate;
 
-        public LoginForm(Bridge.AuthenticateDelegate Authenticate, string DataSource, string Database)
+        public LoginForm(Bridge.AuthenticateDelegate Authenticate, string DataSource, string Database, string Username, string Password)
         {
             InitializeComponent();
             authenticate = Authenticate;
-            uxConnectButton.Enabled = false;
-        }
+            uxServerBox.Select();
+            bool selected = false;
 
-        public LoginForm(Bridge.AuthenticateDelegate Authenticate, string DataSource, string Database, string Username)
-        {
-            InitializeComponent();
-            uxUsernameBox.Text = Username;
-            uxUsernameBox.ReadOnly = true;
-            authenticate = Authenticate;
-            uxConnectButton.Enabled = false;
-            uxPasswordBox.Select();
+            if (DataSource.Length > 0)
+            {
+                uxServerBox.Text = DataSource;
+            }
+            else if(!selected)
+            {
+                uxServerBox.Select();
+                selected = true;
+            }
+
+            if(Database.Length > 0)
+            {
+                uxDatabaseBox.Text = Database;
+            }
+            else if (!selected)
+            {
+                uxDatabaseBox.Select();
+                selected = true;
+            }
+
+            if (Username.Length > 0)
+            {
+                uxUsernameBox.Text = Username;
+            }
+            else if (!selected)
+            {
+                uxUsernameBox.Select();
+                selected = true;
+            }
+
+            if (Password.Length > 0)
+            {
+                uxPasswordBox.Text = Password;
+            }
+            else if (!selected)
+            {
+                uxPasswordBox.Select();
+                selected = true;
+            }
+            CheckIfValid();
         }
 
         private void uxConnectButton_Click(object sender, EventArgs e)
         {
-            authenticate(uxUsernameBox.Text, uxPasswordBox.Text);
+            authenticate(uxServerBox.Text, uxDatabaseBox.Text, uxUsernameBox.Text, uxPasswordBox.Text);
             this.Close();
         }
 
@@ -49,7 +81,7 @@ namespace MovieTheaterApplication
 
         private void CheckIfValid()
         {
-            if (uxPasswordBox.Text.Length > 0 && uxUsernameBox.Text.Length > 0)
+            if (uxPasswordBox.Text.Length > 0 && uxUsernameBox.Text.Length > 0 && uxDatabaseBox.Text.Length > 0 && uxServerBox.Text.Length > 0)
             {
                 uxConnectButton.Enabled = true;
             }
@@ -59,14 +91,14 @@ namespace MovieTheaterApplication
             }
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void uxDatabaseBox_TextChanged(object sender, EventArgs e)
         {
-
+            CheckIfValid();
         }
 
-        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void uxServerBox_TextChanged(object sender, EventArgs e)
         {
-
+            CheckIfValid();
         }
     }
 }

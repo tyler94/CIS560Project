@@ -10,10 +10,59 @@ namespace MovieTheaterApplication
 {
     public static class Bridge
     {
-        public delegate void AuthenticateDelegate(string Username, string Password);
+        public delegate void AuthenticateDelegate(string DataSource, string Database, string Username, string Password);
 
         private static SqlConnection connection;
 
+        public static bool Connect()
+        {
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            {
+                return true;
+            }
+            bool response = false;
+
+            Thread gettingLoginInfo = new Thread(() => new LoginForm(Login, Config.Server, Config.Database, Config.Username, Config.Password).ShowDialog());
+            gettingLoginInfo.Start();
+            // Wait for the other thread to close
+            gettingLoginInfo.Join();
+
+            // 'username' and 'password' fields should be set when the LoginForm calls the Login function below.
+            // If they are not set, then return false
+            return response;
+
+            void Login(string DataSource, string Database, string Username, string Password)
+            {
+                response = Connect(DataSource, Database, Username, Password);
+            }
+        }
+
+        public static bool Connect(string DataSource, string Database, string Username, string Password)
+        {
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            {
+                return true;
+            }
+            string connectionString =
+                "Data Source=" + DataSource + ";" +
+                "Initial Catalog=" + Database + ";" +
+                "User ID=" + Username + ";" +
+                "Password=" + Password;
+
+            connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+            }
+            catch
+            {
+                // return false because the login attempt failed
+                return false;
+            }
+            return true;
+        }
+
+        /*
         public static bool Connect(string DataSource, string Database)
         {
             if(connection != null && connection.State == System.Data.ConnectionState.Open)
@@ -65,30 +114,6 @@ namespace MovieTheaterApplication
                 password = _Password;
             }
         }
-
-        public static bool Connect(string DataSource, string Database, string Username, string Password)
-        {
-            if (connection != null && connection.State == System.Data.ConnectionState.Open)
-            {
-                return true;
-            }
-            string connectionString = 
-                "Data Source=" + DataSource + ";" +
-                "Initial Catalog=" + Database + ";" +
-                "User ID=" + Username + ";" +
-                "Password=" + Password;
-
-            connection = new SqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-            }
-            catch(Exception e)
-            {
-                // return false because the login attempt failed
-                return false;
-            }
-            return true;
-        }
+        */
     }
 }
