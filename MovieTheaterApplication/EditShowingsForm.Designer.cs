@@ -32,16 +32,16 @@
             this.uxEditOptionsLabel = new System.Windows.Forms.Label();
             this.uxTitleSearchBox = new System.Windows.Forms.TextBox();
             this.uxMovieEntries = new System.Windows.Forms.DataGridView();
-            this.uxTitleSearchLabel = new System.Windows.Forms.Label();
-            this.uxShowDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.uxShowDateLabel = new System.Windows.Forms.Label();
-            this.uxShowTimeLabel = new System.Windows.Forms.Label();
-            this.uxShowTimesBox = new System.Windows.Forms.ComboBox();
             this.uxCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxCustomerAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxMovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxShowDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxShowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uxTitleSearchLabel = new System.Windows.Forms.Label();
+            this.uxShowDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.uxShowDateLabel = new System.Windows.Forms.Label();
+            this.uxShowTimeLabel = new System.Windows.Forms.Label();
+            this.uxShowTimesBox = new System.Windows.Forms.ComboBox();
             this.uxSearchOptionsBox = new System.Windows.Forms.ComboBox();
             this.uxSearchOptionsLabel = new System.Windows.Forms.Label();
             this.uxCustomerNameLabel = new System.Windows.Forms.Label();
@@ -99,6 +99,41 @@
             this.uxMovieEntries.Size = new System.Drawing.Size(685, 205);
             this.uxMovieEntries.TabIndex = 9;
             // 
+            // uxCustomerName
+            // 
+            this.uxCustomerName.HeaderText = "Customer Name";
+            this.uxCustomerName.MinimumWidth = 6;
+            this.uxCustomerName.Name = "uxCustomerName";
+            this.uxCustomerName.Width = 125;
+            // 
+            // uxCustomerAge
+            // 
+            this.uxCustomerAge.HeaderText = "Customer Type";
+            this.uxCustomerAge.MinimumWidth = 6;
+            this.uxCustomerAge.Name = "uxCustomerAge";
+            this.uxCustomerAge.Width = 125;
+            // 
+            // uxMovieTitle
+            // 
+            this.uxMovieTitle.HeaderText = "Movie Title";
+            this.uxMovieTitle.MinimumWidth = 6;
+            this.uxMovieTitle.Name = "uxMovieTitle";
+            this.uxMovieTitle.Width = 125;
+            // 
+            // uxShowDate
+            // 
+            this.uxShowDate.HeaderText = "Show Date";
+            this.uxShowDate.MinimumWidth = 6;
+            this.uxShowDate.Name = "uxShowDate";
+            this.uxShowDate.Width = 125;
+            // 
+            // uxShowTime
+            // 
+            this.uxShowTime.HeaderText = "Show Time";
+            this.uxShowTime.MinimumWidth = 6;
+            this.uxShowTime.Name = "uxShowTime";
+            this.uxShowTime.Width = 125;
+            // 
             // uxTitleSearchLabel
             // 
             this.uxTitleSearchLabel.AutoSize = true;
@@ -148,41 +183,6 @@
             this.uxShowTimesBox.Name = "uxShowTimesBox";
             this.uxShowTimesBox.Size = new System.Drawing.Size(121, 24);
             this.uxShowTimesBox.TabIndex = 14;
-            // 
-            // uxCustomerName
-            // 
-            this.uxCustomerName.HeaderText = "Customer Name";
-            this.uxCustomerName.MinimumWidth = 6;
-            this.uxCustomerName.Name = "uxCustomerName";
-            this.uxCustomerName.Width = 125;
-            // 
-            // uxCustomerAge
-            // 
-            this.uxCustomerAge.HeaderText = "Customer Type";
-            this.uxCustomerAge.MinimumWidth = 6;
-            this.uxCustomerAge.Name = "uxCustomerAge";
-            this.uxCustomerAge.Width = 125;
-            // 
-            // uxMovieTitle
-            // 
-            this.uxMovieTitle.HeaderText = "Movie Title";
-            this.uxMovieTitle.MinimumWidth = 6;
-            this.uxMovieTitle.Name = "uxMovieTitle";
-            this.uxMovieTitle.Width = 125;
-            // 
-            // uxShowDate
-            // 
-            this.uxShowDate.HeaderText = "Show Date";
-            this.uxShowDate.MinimumWidth = 6;
-            this.uxShowDate.Name = "uxShowDate";
-            this.uxShowDate.Width = 125;
-            // 
-            // uxShowTime
-            // 
-            this.uxShowTime.HeaderText = "Show Time";
-            this.uxShowTime.MinimumWidth = 6;
-            this.uxShowTime.Name = "uxShowTime";
-            this.uxShowTime.Width = 125;
             // 
             // uxSearchOptionsBox
             // 
@@ -258,6 +258,7 @@
             this.uxSearchButton.TabIndex = 22;
             this.uxSearchButton.Text = "Search";
             this.uxSearchButton.UseVisualStyleBackColor = true;
+            this.uxSearchButton.Click += new System.EventHandler(this.uxSearchButton_Click);
             // 
             // uxExecuteButton
             // 
@@ -269,6 +270,7 @@
             this.uxExecuteButton.TabIndex = 23;
             this.uxExecuteButton.Text = "Execute";
             this.uxExecuteButton.UseVisualStyleBackColor = true;
+            this.uxExecuteButton.Click += new System.EventHandler(this.uxExecuteButton_Click);
             // 
             // EditShowingsForm
             // 

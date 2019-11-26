@@ -15,6 +15,17 @@ namespace MovieTheaterApplication
         public EditShowingsForm()
         {
             InitializeComponent();
+            uxExecuteButton.Enabled = false;
+        }
+
+        private void uxExecuteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uxSearchButton_Click(object sender, EventArgs e)
+        {
+            uxExecuteButton.Enabled = true;
         }
     }
 }

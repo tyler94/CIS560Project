@@ -189,6 +189,7 @@
             this.uxAddMovie.TabIndex = 9;
             this.uxAddMovie.Text = "Add Movie";
             this.uxAddMovie.UseVisualStyleBackColor = true;
+            this.uxAddMovie.Click += new System.EventHandler(this.uxAddMovie_Click);
             // 
             // uxModifyMovieButton
             // 
@@ -200,6 +201,7 @@
             this.uxModifyMovieButton.TabIndex = 10;
             this.uxModifyMovieButton.Text = "Modify Movie";
             this.uxModifyMovieButton.UseVisualStyleBackColor = true;
+            this.uxModifyMovieButton.Click += new System.EventHandler(this.uxModifyMovieButton_Click);
             // 
             // ActiveMoviesForm
             // 

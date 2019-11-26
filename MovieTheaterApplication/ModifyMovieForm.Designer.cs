@@ -57,6 +57,7 @@
             this.uxGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxFilmRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxFilmLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uxSearchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uxMovieEntries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -317,11 +318,24 @@
             this.uxFilmLength.Name = "uxFilmLength";
             this.uxFilmLength.Width = 125;
             // 
+            // uxSearchButton
+            // 
+            this.uxSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSearchButton.Location = new System.Drawing.Point(343, 50);
+            this.uxSearchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSearchButton.Name = "uxSearchButton";
+            this.uxSearchButton.Size = new System.Drawing.Size(109, 34);
+            this.uxSearchButton.TabIndex = 34;
+            this.uxSearchButton.Text = "Search";
+            this.uxSearchButton.UseVisualStyleBackColor = true;
+            this.uxSearchButton.Click += new System.EventHandler(this.uxSearchButton_Click);
+            // 
             // ModifyMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 523);
+            this.Controls.Add(this.uxSearchButton);
             this.Controls.Add(this.uxLengthBox);
             this.Controls.Add(this.uxLengthLabel);
             this.Controls.Add(this.uxRatingLabel);
@@ -382,5 +396,6 @@
         private System.Windows.Forms.TextBox uxDirectorBox;
         private System.Windows.Forms.Label uxTitleLabel;
         private System.Windows.Forms.TextBox uxTitleBox;
+        private System.Windows.Forms.Button uxSearchButton;
     }
 }
