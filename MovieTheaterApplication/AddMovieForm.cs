@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
-    public partial class ActiveMoviesForm : Form
+    public partial class AddMovieForm : Form
     {
-        public ActiveMoviesForm()
+        public AddMovieForm()
         {
             InitializeComponent();
-        }
-
-        private void uxSearchButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
