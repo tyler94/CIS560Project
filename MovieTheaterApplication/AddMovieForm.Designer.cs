@@ -28,201 +28,201 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uxMovieTitleBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.uxEndDateLabel = new System.Windows.Forms.Label();
+            this.uxEndDateBox = new System.Windows.Forms.TextBox();
+            this.uxReleaseDateBox = new System.Windows.Forms.TextBox();
+            this.uxReleaseDateLabel = new System.Windows.Forms.Label();
+            this.uxDirectorLabel = new System.Windows.Forms.Label();
+            this.uxDirectorBox = new System.Windows.Forms.TextBox();
+            this.uxTitleLabel = new System.Windows.Forms.Label();
+            this.uxTitleBox = new System.Windows.Forms.TextBox();
+            this.uxLengthBox = new System.Windows.Forms.TextBox();
+            this.uxLengthLabel = new System.Windows.Forms.Label();
+            this.uxRatingLabel = new System.Windows.Forms.Label();
+            this.uxRatingBox = new System.Windows.Forms.TextBox();
+            this.uxGenreLabel = new System.Windows.Forms.Label();
+            this.uxGenreBox = new System.Windows.Forms.TextBox();
+            this.uxStudioLabel = new System.Windows.Forms.Label();
+            this.uxStudioBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // uxMovieTitleBox
-            // 
-            this.uxMovieTitleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.uxMovieTitleBox.Location = new System.Drawing.Point(145, 64);
-            this.uxMovieTitleBox.Name = "uxMovieTitleBox";
-            this.uxMovieTitleBox.Size = new System.Drawing.Size(207, 26);
-            this.uxMovieTitleBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(67, 9);
+            this.label1.Location = new System.Drawing.Point(77, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter Movie Information Below";
             // 
-            // label2
+            // uxEndDateLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(82, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Title*";
+            this.uxEndDateLabel.AutoSize = true;
+            this.uxEndDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxEndDateLabel.Location = new System.Drawing.Point(39, 166);
+            this.uxEndDateLabel.Name = "uxEndDateLabel";
+            this.uxEndDateLabel.Size = new System.Drawing.Size(79, 20);
+            this.uxEndDateLabel.TabIndex = 36;
+            this.uxEndDateLabel.Text = "End Date";
             // 
-            // textBox1
+            // uxEndDateBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox1.Location = new System.Drawing.Point(145, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 26);
-            this.textBox1.TabIndex = 4;
+            this.uxEndDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxEndDateBox.Location = new System.Drawing.Point(140, 163);
+            this.uxEndDateBox.Name = "uxEndDateBox";
+            this.uxEndDateBox.Size = new System.Drawing.Size(207, 26);
+            this.uxEndDateBox.TabIndex = 35;
             // 
-            // label3
+            // uxReleaseDateBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(53, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Director*";
+            this.uxReleaseDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxReleaseDateBox.Location = new System.Drawing.Point(140, 124);
+            this.uxReleaseDateBox.Name = "uxReleaseDateBox";
+            this.uxReleaseDateBox.Size = new System.Drawing.Size(207, 26);
+            this.uxReleaseDateBox.TabIndex = 34;
             // 
-            // textBox2
+            // uxReleaseDateLabel
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(145, 145);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(207, 26);
-            this.textBox2.TabIndex = 6;
+            this.uxReleaseDateLabel.AutoSize = true;
+            this.uxReleaseDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxReleaseDateLabel.Location = new System.Drawing.Point(7, 127);
+            this.uxReleaseDateLabel.Name = "uxReleaseDateLabel";
+            this.uxReleaseDateLabel.Size = new System.Drawing.Size(111, 20);
+            this.uxReleaseDateLabel.TabIndex = 33;
+            this.uxReleaseDateLabel.Text = "Release Date";
             // 
-            // label4
+            // uxDirectorLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(67, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Studio*";
+            this.uxDirectorLabel.AutoSize = true;
+            this.uxDirectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxDirectorLabel.Location = new System.Drawing.Point(48, 88);
+            this.uxDirectorLabel.Name = "uxDirectorLabel";
+            this.uxDirectorLabel.Size = new System.Drawing.Size(70, 20);
+            this.uxDirectorLabel.TabIndex = 32;
+            this.uxDirectorLabel.Text = "Director";
             // 
-            // label5
+            // uxDirectorBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(12, 189);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Release Date*";
+            this.uxDirectorBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxDirectorBox.Location = new System.Drawing.Point(140, 84);
+            this.uxDirectorBox.Name = "uxDirectorBox";
+            this.uxDirectorBox.Size = new System.Drawing.Size(207, 26);
+            this.uxDirectorBox.TabIndex = 31;
             // 
-            // textBox3
+            // uxTitleLabel
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox3.Location = new System.Drawing.Point(145, 186);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(207, 26);
-            this.textBox3.TabIndex = 9;
+            this.uxTitleLabel.AutoSize = true;
+            this.uxTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxTitleLabel.Location = new System.Drawing.Point(77, 47);
+            this.uxTitleLabel.Name = "uxTitleLabel";
+            this.uxTitleLabel.Size = new System.Drawing.Size(41, 20);
+            this.uxTitleLabel.TabIndex = 30;
+            this.uxTitleLabel.Text = "Title";
             // 
-            // textBox4
+            // uxTitleBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox4.Location = new System.Drawing.Point(145, 226);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(207, 26);
-            this.textBox4.TabIndex = 10;
+            this.uxTitleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxTitleBox.Location = new System.Drawing.Point(140, 44);
+            this.uxTitleBox.Name = "uxTitleBox";
+            this.uxTitleBox.Size = new System.Drawing.Size(207, 26);
+            this.uxTitleBox.TabIndex = 29;
             // 
-            // textBox5
+            // uxLengthBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox5.Location = new System.Drawing.Point(145, 267);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(207, 26);
-            this.textBox5.TabIndex = 11;
+            this.uxLengthBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxLengthBox.Location = new System.Drawing.Point(140, 330);
+            this.uxLengthBox.Name = "uxLengthBox";
+            this.uxLengthBox.Size = new System.Drawing.Size(207, 26);
+            this.uxLengthBox.TabIndex = 44;
             // 
-            // label6
+            // uxLengthLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(44, 229);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "End Date*";
+            this.uxLengthLabel.AutoSize = true;
+            this.uxLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxLengthLabel.Location = new System.Drawing.Point(24, 333);
+            this.uxLengthLabel.Name = "uxLengthLabel";
+            this.uxLengthLabel.Size = new System.Drawing.Size(97, 20);
+            this.uxLengthLabel.TabIndex = 43;
+            this.uxLengthLabel.Text = "Film Length";
             // 
-            // label7
+            // uxRatingLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(68, 270);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Genre*";
+            this.uxRatingLabel.AutoSize = true;
+            this.uxRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxRatingLabel.Location = new System.Drawing.Point(24, 291);
+            this.uxRatingLabel.Name = "uxRatingLabel";
+            this.uxRatingLabel.Size = new System.Drawing.Size(94, 20);
+            this.uxRatingLabel.TabIndex = 42;
+            this.uxRatingLabel.Text = "Film Rating";
             // 
-            // textBox6
+            // uxRatingBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox6.Location = new System.Drawing.Point(145, 309);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(207, 26);
-            this.textBox6.TabIndex = 14;
+            this.uxRatingBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxRatingBox.Location = new System.Drawing.Point(140, 288);
+            this.uxRatingBox.Name = "uxRatingBox";
+            this.uxRatingBox.Size = new System.Drawing.Size(207, 26);
+            this.uxRatingBox.TabIndex = 41;
             // 
-            // label8
+            // uxGenreLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(29, 312);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Film Rating*";
+            this.uxGenreLabel.AutoSize = true;
+            this.uxGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxGenreLabel.Location = new System.Drawing.Point(63, 249);
+            this.uxGenreLabel.Name = "uxGenreLabel";
+            this.uxGenreLabel.Size = new System.Drawing.Size(55, 20);
+            this.uxGenreLabel.TabIndex = 40;
+            this.uxGenreLabel.Text = "Genre";
             // 
-            // label9
+            // uxGenreBox
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(29, 354);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 20);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Film Length*";
+            this.uxGenreBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxGenreBox.Location = new System.Drawing.Point(140, 246);
+            this.uxGenreBox.Name = "uxGenreBox";
+            this.uxGenreBox.Size = new System.Drawing.Size(207, 26);
+            this.uxGenreBox.TabIndex = 39;
             // 
-            // textBox7
+            // uxStudioLabel
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox7.Location = new System.Drawing.Point(145, 351);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(207, 26);
-            this.textBox7.TabIndex = 17;
+            this.uxStudioLabel.AutoSize = true;
+            this.uxStudioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxStudioLabel.Location = new System.Drawing.Point(62, 208);
+            this.uxStudioLabel.Name = "uxStudioLabel";
+            this.uxStudioLabel.Size = new System.Drawing.Size(56, 20);
+            this.uxStudioLabel.TabIndex = 38;
+            this.uxStudioLabel.Text = "Studio";
+            // 
+            // uxStudioBox
+            // 
+            this.uxStudioBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxStudioBox.Location = new System.Drawing.Point(140, 205);
+            this.uxStudioBox.Name = "uxStudioBox";
+            this.uxStudioBox.Size = new System.Drawing.Size(207, 26);
+            this.uxStudioBox.TabIndex = 37;
             // 
             // AddMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 404);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.uxLengthBox);
+            this.Controls.Add(this.uxLengthLabel);
+            this.Controls.Add(this.uxRatingLabel);
+            this.Controls.Add(this.uxRatingBox);
+            this.Controls.Add(this.uxGenreLabel);
+            this.Controls.Add(this.uxGenreBox);
+            this.Controls.Add(this.uxStudioLabel);
+            this.Controls.Add(this.uxStudioBox);
+            this.Controls.Add(this.uxEndDateLabel);
+            this.Controls.Add(this.uxEndDateBox);
+            this.Controls.Add(this.uxReleaseDateBox);
+            this.Controls.Add(this.uxReleaseDateLabel);
+            this.Controls.Add(this.uxDirectorLabel);
+            this.Controls.Add(this.uxDirectorBox);
+            this.Controls.Add(this.uxTitleLabel);
+            this.Controls.Add(this.uxTitleBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.uxMovieTitleBox);
             this.Name = "AddMovieForm";
             this.Text = "AddMovieForm";
             this.ResumeLayout(false);
@@ -231,23 +231,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox uxMovieTitleBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label uxEndDateLabel;
+        private System.Windows.Forms.TextBox uxEndDateBox;
+        private System.Windows.Forms.TextBox uxReleaseDateBox;
+        private System.Windows.Forms.Label uxReleaseDateLabel;
+        private System.Windows.Forms.Label uxDirectorLabel;
+        private System.Windows.Forms.TextBox uxDirectorBox;
+        private System.Windows.Forms.Label uxTitleLabel;
+        private System.Windows.Forms.TextBox uxTitleBox;
+        private System.Windows.Forms.TextBox uxLengthBox;
+        private System.Windows.Forms.Label uxLengthLabel;
+        private System.Windows.Forms.Label uxRatingLabel;
+        private System.Windows.Forms.TextBox uxRatingBox;
+        private System.Windows.Forms.Label uxGenreLabel;
+        private System.Windows.Forms.TextBox uxGenreBox;
+        private System.Windows.Forms.Label uxStudioLabel;
+        private System.Windows.Forms.TextBox uxStudioBox;
     }
 }

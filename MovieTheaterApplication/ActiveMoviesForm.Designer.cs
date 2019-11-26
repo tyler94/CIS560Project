@@ -60,7 +60,7 @@
             this.uxMovieEntries.Name = "uxMovieEntries";
             this.uxMovieEntries.RowHeadersWidth = 51;
             this.uxMovieEntries.RowTemplate.Height = 24;
-            this.uxMovieEntries.Size = new System.Drawing.Size(677, 215);
+            this.uxMovieEntries.Size = new System.Drawing.Size(679, 215);
             this.uxMovieEntries.TabIndex = 0;
             // 
             // uxTitle
