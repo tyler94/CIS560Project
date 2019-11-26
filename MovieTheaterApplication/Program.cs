@@ -14,6 +14,8 @@ namespace MovieTheaterApplication
         [STAThread]
         static void Main()
         {
+            Config.ReadConfig();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TheaterNavigationForm());
