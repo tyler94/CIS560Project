@@ -9,5 +9,5 @@ AS
 SELECT M.MovieId, M.MovieName, M.DirectorId, M.ProductionCompanyId, M.ReleaseDate, M.IsRemoved, M.[Length], M.FilmRating
 FROM Movie.Director D
 INNER JOIN Movie.Movie M ON M.DirectorId = D.DirectorId
-WHERE M.IsRemoved = @IsRemoved
+WHERE M.IsRemoved = @IsRemoved AND D.FullName LIKE '%' + @FullName + '%'
 GO

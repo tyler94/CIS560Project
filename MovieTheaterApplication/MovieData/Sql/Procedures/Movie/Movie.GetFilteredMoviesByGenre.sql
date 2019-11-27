@@ -10,5 +10,5 @@ SELECT M.MovieId, M.MovieName, M.DirectorId, M.ProductionCompanyId, M.ReleaseDat
 FROM Movie.Genre G
 INNER JOIN Movie.MovieGenre MG ON MG.GenreId = G.GenreId
 INNER JOIN Movie.Movie M ON Mg.MovieId = M.MovieId
-WHERE M.IsRemoved = @IsRemoved
+WHERE M.IsRemoved = @IsRemoved AND G.GenreName LIKE '%' + @GenreName + '%'
 GO

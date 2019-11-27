@@ -1,5 +1,5 @@
 Param(
-   [string] $Server = "(localdb)\560Project",
+   [string] $Server = "(localdb)\tyler94",
    [string] $Database = "master"
 )
 

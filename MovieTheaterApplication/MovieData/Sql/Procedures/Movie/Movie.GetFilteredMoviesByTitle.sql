@@ -8,5 +8,5 @@ AS
 
 SELECT M.MovieId, M.MovieName, M.DirectorId, M.ProductionCompanyId, M.ReleaseDate, M.IsRemoved, M.[Length], M.FilmRating
 FROM Movie.Movie M
-WHERE M.IsRemoved = @IsRemoved
+WHERE M.IsRemoved = @IsRemoved AND M.MovieName LIKE '%' + @MovieName + '%'
 GO
