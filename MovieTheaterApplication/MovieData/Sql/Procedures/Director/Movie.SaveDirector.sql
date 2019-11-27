@@ -11,21 +11,21 @@ AS
 MERGE Movie.Director A
 USING
       (
-         VALUES(@DirectorId, @FullName, @DateOfBirth, @BirthPlace)
-      ) S(DirectorId, FullName, DateOfBirth, BirthPlace)
+         VALUES(@DirectorId, @FullName, @DateOfBirth, @Birthplace)
+      ) S(DirectorId, FullName, DateOfBirth, Birthplace)
    ON S.DirectorId = A.DirectorId
 WHEN MATCHED AND NOT EXISTS
       (
-         SELECT S.FullName, S.DateOfBirth, S.BirthPlace
+         SELECT S.FullName, S.DateOfBirth, S.Birthplace
          INTERSECT
-         SELECT  A.FullName, A.DateOfBirth, A.BirthPlace
+         SELECT  A.FullName, A.DateOfBirth, A.Birthplace
       ) THEN
    UPDATE
    SET
       FullName = S.FullName,
       DateOfBirth = S.DateOfBirth,
-      BirthPlace = S.BirthPlace
+      Birthplace = S.Birthplace
 WHEN NOT MATCHED THEN
-   INSERT(FullName, DateOfBirth, BirthPlace)
-   VALUES(S.FullName, S.DateOfBirth, S.BirthPlace);
+   INSERT(FullName, DateOfBirth, Birthplace)
+   VALUES(S.FullName, S.DateOfBirth, S.Birthplace);
 GO

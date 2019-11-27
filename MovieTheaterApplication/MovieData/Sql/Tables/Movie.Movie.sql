@@ -9,7 +9,7 @@ BEGIN
 	  ProductionCompanyId INT FOREIGN KEY
 		REFERENCES Movie.ProductionCompany(CompanyId),
 	  ReleaseDate DATE,
-	  IsRemoved BIT NOT NULL DEFAULT 1,
+	  IsRemoved BIT NOT NULL DEFAULT 0,
 	  [Length] INT,
 	  FilmRating NVARCHAR(128)
    );

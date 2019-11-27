@@ -2,8 +2,10 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetProd
   DROP PROCEDURE Movie.GetProductionCompanies
 GO
 CREATE PROCEDURE Movie.GetProductionCompanies
+	@CompanyName NVARCHAR(128)
 AS
 
 SELECT P.CompanyId, P.CompanyName, P.DateEstablished, P.Location
-FROM Movie.ProductionCompany P;
+FROM Movie.ProductionCompany P
+WHERE P.CompanyName = @CompanyName
 GO
