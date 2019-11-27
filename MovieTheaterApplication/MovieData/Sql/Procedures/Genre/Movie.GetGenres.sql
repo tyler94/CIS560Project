@@ -7,5 +7,5 @@ AS
 
 SELECT G.GenreId, G.GenreName
 FROM Movie.Genre G
-WHERE G.GenreName LIKE '%' + @GenreName + '%'
+WHERE G.GenreName = @GenreName
 GO

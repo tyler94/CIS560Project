@@ -132,6 +132,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\
 
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.CreateGenre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.AddMovieGenre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.FetchGenre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.GetGenres.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.RetrieveGenres.sql"
@@ -150,6 +151,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Customer\Movie.SaveCustomer.sql"
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Actor\Movie.CreateActor.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Actor\Movie.AddCast.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Actor\Movie.FetchActor.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Actor\Movie.GetActors.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Actor\Movie.RetrieveActors.sql"
