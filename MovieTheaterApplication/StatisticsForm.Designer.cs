@@ -44,12 +44,12 @@
             this.uxStatisticOptions.Size = new System.Drawing.Size(766, 157);
             this.uxStatisticOptions.TabIndex = 0;
             // 
-            // uxSerachOptionsLabel
+            // uxSearchOptionsLabel
             // 
             this.uxSerachOptionsLabel.AutoSize = true;
             this.uxSerachOptionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxSerachOptionsLabel.Location = new System.Drawing.Point(7, 12);
-            this.uxSerachOptionsLabel.Name = "uxSerachOptionsLabel";
+            this.uxSerachOptionsLabel.Name = "uxSearchOptionsLabel";
             this.uxSerachOptionsLabel.Size = new System.Drawing.Size(92, 20);
             this.uxSerachOptionsLabel.TabIndex = 9;
             this.uxSerachOptionsLabel.Text = "Search By:";

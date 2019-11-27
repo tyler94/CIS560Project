@@ -27,7 +27,33 @@ namespace MovieTheaterApplication
         {
             if(ValidateRadioButtons())
             {
-
+                switch(uxSearchOptionsBox.SelectedIndex)
+                {
+                    // None
+                    case 0:
+                        {
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.None, uxSearchEntry.Text);
+                            break;
+                        }
+                    // Movie Title
+                    case 1:
+                        {
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, uxSearchEntry.Text);
+                            break;
+                        }
+                    // Movie Director
+                    case 2:
+                        {
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieDirector, uxSearchEntry.Text);
+                            break;
+                        }
+                    // Movie Genre
+                    case 3:
+                        {
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieGenre, uxSearchEntry.Text);
+                            break;
+                        }
+                }
             }
             else
             {

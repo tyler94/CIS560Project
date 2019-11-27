@@ -35,3 +35,5 @@ C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieThe
 C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.EditShowingsForm.resources
 C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.LoginForm.resources
 C:\Users\kedlo\Documents\Coding Projects\Database Project\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.ModifyMovieForm.resources
+C:\Users\Brand\Source\Repos\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.AddMovieForm.resources
+C:\Users\Brand\Source\Repos\CIS560Project\MovieTheaterApplication\obj\Debug\MovieTheaterApplication.ModifyMovieForm.resources

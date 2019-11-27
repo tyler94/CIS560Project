@@ -78,6 +78,7 @@
     <Compile Include="ModifyMovieForm.Designer.cs">
       <DependentUpon>ModifyMovieForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlProcedures.cs" />
     <Compile Include="StatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>

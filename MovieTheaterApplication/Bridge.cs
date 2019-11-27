@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
     public static class Bridge
     {
         public delegate void AuthenticateDelegate(string DataSource, string Database, string Username, string Password);
+        public enum MovieSearchType { None, MovieTitle, MovieDirector, MovieGenre }
+        //public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable}
 
         private static SqlConnection connection;
 
@@ -54,66 +59,131 @@ namespace MovieTheaterApplication
             {
                 connection.Open();
             }
-            catch
+            catch (Exception e)
             {
-                // return false because the login attempt failed
+                MessageBox.Show(e.Message);
                 return false;
             }
             return true;
         }
 
-        /*
-        public static bool Connect(string DataSource, string Database)
+        public static void RerunAllProcedures()
         {
-            if(connection != null && connection.State == System.Data.ConnectionState.Open)
+            using (StreamReader sr = new StreamReader("..\\..\\config\\procedures.txt"))
             {
-                return true;
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    using (StreamReader sr2 = new StreamReader(line))
+                    {
+                        string sql = "";
+                        while (!sr2.EndOfStream)
+                        {
+                            string ln = sr2.ReadLine();
+                            if(ln.ToLower() == "go")
+                            {
+                                Run(sql, line);
+                                sql = "";
+                            }
+                            else
+                            {
+                                sql += ln + ' ';
+                            }
+                        }
+                        if(sql != "")
+                            Run(sql, line);
+                    }
+                }
             }
-            string username = "";
-            string password = "";
+
+            MessageBox.Show("All procedures successfully run");
+        }
+
+        public static DataTable SearchForMovie(MovieSearchType type, string input)
+        {
+            string sql;
+            if (input == "")
+            {
+                sql = SqlProcedures.RetrieveMovies();
+                return Call(sql);
+            }
+
+            switch (type)
+            {
+                case MovieSearchType.None:
+                    {
+                        sql = SqlProcedures.GetMovies(input);
+                        return Call(sql);
+                    }
+                case MovieSearchType.MovieTitle:
+                    {
+                        sql = SqlProcedures.GetMoviesByTitle(input);
+                        return Call(sql);
+                    }
+                case MovieSearchType.MovieGenre:
+                    {
+                        sql = SqlProcedures.GetMoviesByGenre(input);
+                        return Call(sql);
+                    }
+                case MovieSearchType.MovieDirector:
+                    {
+                        sql = SqlProcedures.GetMoviesByDirector(input);
+                        return Call(sql);
+                    }
+            }
+            return null;
+        }
+
+        public static void Run(string sql, string file)
+        {
             
-            Thread gettingLoginInfo = new Thread(() => new LoginForm(Login, DataSource, Database).ShowDialog());
-            gettingLoginInfo.Start();
-            // Wait for the other thread to close
-            gettingLoginInfo.Join();
-
-            // 'username' and 'password' fields should be set when the LoginForm calls the Login function below.
-            // If they are not set, then return false
-            if (username.Length == 0 || password.Length == 0)
-                return false;
-            return Connect(DataSource, Database, username, password);
-
-            void Login(string _Username, string _Password)
+            SqlCommand command = new SqlCommand(sql, connection);
+            try
             {
-                username = _Username;
-                password = _Password;
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + '\n' + "In file: " + file);
             }
         }
 
-        public static bool Connect(string DataSource, string Database, string Username)
+        public static DataTable Call(string sql)
         {
-            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader dataReader = null;
+            try
             {
-                return true;
+                dataReader = command.ExecuteReader();
             }
-            string password = "";
-
-            Thread gettingLoginInfo = new Thread(() => new LoginForm(Login, DataSource, Database, Username).ShowDialog());
-            gettingLoginInfo.Start();
-            // Wait for the other thread to close
-            gettingLoginInfo.Join();
-
-            // 'username' and 'password' fields should be set when the LoginForm calls the Login function below.
-            // If they are not set, then return false
-            if (Username.Length == 0 || password.Length == 0)
-                return false;
-            return Connect(DataSource, Database, Username, password);
-
-            void Login(string _Username, string _Password)
+            catch (Exception e)
             {
-                password = _Password;
+                MessageBox.Show(e.ToString());
             }
+
+            List<string> columns = new List<string>();
+            List<DataColumn> dataColumns = new List<DataColumn>();
+            for (int i = 0; i < dataReader.FieldCount; i++)
+            {
+                columns.Add(dataReader.GetName(i));
+                dataColumns.Add(new DataColumn(dataReader.GetName(i)));
+            }
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.AddRange(dataColumns.ToArray());
+            
+            while (dataReader.Read())
+            {
+                List<string> items = new List<string>();
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    items.Add(dataReader.GetValue(i).ToString());
+                }
+                dataTable.Rows.Add((object[])items.ToArray());
+            }
+            
+            dataReader.Close();
+            return dataTable;
         }
-        */
     }
 }
