@@ -45,6 +45,12 @@
             this.uxGenreBox = new System.Windows.Forms.TextBox();
             this.uxStudioLabel = new System.Windows.Forms.Label();
             this.uxStudioBox = new System.Windows.Forms.TextBox();
+            this.uxApplyButton = new System.Windows.Forms.Button();
+            this.uxActorOneBox = new System.Windows.Forms.TextBox();
+            this.uxActorTwoBox = new System.Windows.Forms.TextBox();
+            this.uxActorThreeBox = new System.Windows.Forms.TextBox();
+            this.uxActorFourBox = new System.Windows.Forms.TextBox();
+            this.uxActorsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -201,11 +207,71 @@
             this.uxStudioBox.Size = new System.Drawing.Size(207, 26);
             this.uxStudioBox.TabIndex = 37;
             // 
+            // uxApplyButton
+            // 
+            this.uxApplyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxApplyButton.Location = new System.Drawing.Point(238, 536);
+            this.uxApplyButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxApplyButton.Name = "uxApplyButton";
+            this.uxApplyButton.Size = new System.Drawing.Size(109, 34);
+            this.uxApplyButton.TabIndex = 45;
+            this.uxApplyButton.Text = "Apply";
+            this.uxApplyButton.UseVisualStyleBackColor = true;
+            this.uxApplyButton.Click += new System.EventHandler(this.uxApplyButton_Click);
+            // 
+            // uxActorOneBox
+            // 
+            this.uxActorOneBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxActorOneBox.Location = new System.Drawing.Point(140, 371);
+            this.uxActorOneBox.Name = "uxActorOneBox";
+            this.uxActorOneBox.Size = new System.Drawing.Size(207, 26);
+            this.uxActorOneBox.TabIndex = 46;
+            // 
+            // uxActorTwoBox
+            // 
+            this.uxActorTwoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxActorTwoBox.Location = new System.Drawing.Point(140, 412);
+            this.uxActorTwoBox.Name = "uxActorTwoBox";
+            this.uxActorTwoBox.Size = new System.Drawing.Size(207, 26);
+            this.uxActorTwoBox.TabIndex = 47;
+            // 
+            // uxActorThreeBox
+            // 
+            this.uxActorThreeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxActorThreeBox.Location = new System.Drawing.Point(140, 452);
+            this.uxActorThreeBox.Name = "uxActorThreeBox";
+            this.uxActorThreeBox.Size = new System.Drawing.Size(207, 26);
+            this.uxActorThreeBox.TabIndex = 48;
+            // 
+            // uxActorFourBox
+            // 
+            this.uxActorFourBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxActorFourBox.Location = new System.Drawing.Point(140, 492);
+            this.uxActorFourBox.Name = "uxActorFourBox";
+            this.uxActorFourBox.Size = new System.Drawing.Size(207, 26);
+            this.uxActorFourBox.TabIndex = 49;
+            // 
+            // uxActorsLabel
+            // 
+            this.uxActorsLabel.AutoSize = true;
+            this.uxActorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.uxActorsLabel.Location = new System.Drawing.Point(46, 374);
+            this.uxActorsLabel.Name = "uxActorsLabel";
+            this.uxActorsLabel.Size = new System.Drawing.Size(75, 20);
+            this.uxActorsLabel.TabIndex = 50;
+            this.uxActorsLabel.Text = "Actor(s):";
+            // 
             // AddMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 404);
+            this.ClientSize = new System.Drawing.Size(378, 581);
+            this.Controls.Add(this.uxActorsLabel);
+            this.Controls.Add(this.uxActorFourBox);
+            this.Controls.Add(this.uxActorThreeBox);
+            this.Controls.Add(this.uxActorTwoBox);
+            this.Controls.Add(this.uxActorOneBox);
+            this.Controls.Add(this.uxApplyButton);
             this.Controls.Add(this.uxLengthBox);
             this.Controls.Add(this.uxLengthLabel);
             this.Controls.Add(this.uxRatingLabel);
@@ -248,5 +314,11 @@
         private System.Windows.Forms.TextBox uxGenreBox;
         private System.Windows.Forms.Label uxStudioLabel;
         private System.Windows.Forms.TextBox uxStudioBox;
+        private System.Windows.Forms.Button uxApplyButton;
+        private System.Windows.Forms.TextBox uxActorOneBox;
+        private System.Windows.Forms.TextBox uxActorTwoBox;
+        private System.Windows.Forms.TextBox uxActorThreeBox;
+        private System.Windows.Forms.TextBox uxActorFourBox;
+        private System.Windows.Forms.Label uxActorsLabel;
     }
 }
