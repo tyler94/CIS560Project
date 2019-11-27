@@ -98,8 +98,14 @@ Import-Csv -Path csvs\actorsnodups.csv | ForEach-Object {
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetBusiestMonths.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMostViewedGenres.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMostViewedMovies.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMovieDemographic.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetHighestCustomerCountByDay.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetHighestCustomerCountByMonth.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetHighestCustomerCountByYear.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetTopGrossingMovies.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMostPopularAgeGroupByMovie.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMostPopularAgeGroupByMovieV2.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie.GetMostPopularAgeGroupOverall.sql"
+
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.CreateViewing.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.FetchViewing.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.GetViewings.sql"
@@ -114,9 +120,16 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.CreateMovie.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.FetchMovie.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetFilteredMoviesByDirector.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetFilteredMoviesByGenre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetFilteredMoviesByTitle.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMovies.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMoviesByDirector.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMoviesByGenre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMoviesByTitle.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.RetrieveMovies.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.SaveMovie.sql"
+
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.CreateGenre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Genre\Movie.FetchGenre.sql"
