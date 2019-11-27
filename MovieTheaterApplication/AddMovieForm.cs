@@ -33,7 +33,7 @@ namespace MovieTheaterApplication
         /// <summary>
         /// verifies if required fields aren't empty strings
         /// </summary>
-        /// returns true if required fields aren't empty, and false if at least one of them is empty
+        /// <returns>true if required fields aren't empty, and false if at least one of them is empty</returns>
         private bool CheckEmptyFields()
         {
             if(uxTitleBox.Text == "")

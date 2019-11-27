@@ -109,6 +109,7 @@
             this.uxActiveShowings.TabStop = true;
             this.uxActiveShowings.Text = "only show available movies";
             this.uxActiveShowings.UseVisualStyleBackColor = true;
+            this.uxActiveShowings.CheckedChanged += new System.EventHandler(this.uxActiveShowings_CheckedChanged);
             // 
             // uxInactiveShowings
             // 
@@ -121,6 +122,7 @@
             this.uxInactiveShowings.TabStop = true;
             this.uxInactiveShowings.Text = "only show unavailable movies";
             this.uxInactiveShowings.UseVisualStyleBackColor = true;
+            this.uxInactiveShowings.CheckedChanged += new System.EventHandler(this.uxInactiveShowings_CheckedChanged);
             // 
             // uxAllMovies
             // 
@@ -133,6 +135,7 @@
             this.uxAllMovies.TabStop = true;
             this.uxAllMovies.Text = "show all movies";
             this.uxAllMovies.UseVisualStyleBackColor = true;
+            this.uxAllMovies.CheckedChanged += new System.EventHandler(this.uxAllMovies_CheckedChanged);
             // 
             // uxSearchButton
             // 
