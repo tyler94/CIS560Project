@@ -11,7 +11,7 @@ WITH TempTable (ViewingId, MovieId, CustomerId, CustomerCategoryId, TicketPrice)
 	FROM Movie.Viewing V
 	INNER JOIN Movie.Customer C ON V.CustomerId = C.CustomerId
 	INNER JOIN Movie.CustomerCategory CC ON C.CustomerCategoryId = CC.CustomerCategoryId
-	WHERE MONTH(V.ViewedOn) = MONTH(@MyDate)
+	WHERE MONTH(V.ViewedOn) = MONTH(@MyDate) AND YEAR(V.ViewedOn) = YEAR(@MyDate)
 )
 SELECT M.MovieId, M.MovieName, COUNT(T.ViewingId) AS TotalViewers
 FROM Movie.Movie M
