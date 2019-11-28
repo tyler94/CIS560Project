@@ -15,7 +15,7 @@ namespace MovieTheaterApplication
     {
         public delegate void AuthenticateDelegate(string DataSource, string Database, string Username, string Password);
         public enum MovieSearchType { None, MovieTitle, MovieDirector, MovieGenre }
-        //public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable}
+        public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable}
 
         private static SqlConnection connection;
 
@@ -40,6 +40,48 @@ namespace MovieTheaterApplication
             {
                 response = Connect(DataSource, Database, Username, Password);
             }
+        }
+
+        internal static object GetMostPopularAgeGroupOverall()
+        {
+            string sql = SqlProcedures.GetMostPopularAgeGroupOverall();
+            return Call(sql);
+        }
+
+        internal static object GetHighestCustomerCountByYear()
+        {
+            string sql = SqlProcedures.GetHighestCustomerCountByYear();
+            return Call(sql);
+        }
+
+        internal static object GetMostPopularAgeGroupByMovie()
+        {
+            string sql = SqlProcedures.GetMostPopularAgeGroupByMovie();
+            return Call(sql);
+        }
+
+        internal static object GetHighestCustomerCountByMonth()
+        {
+            string sql = SqlProcedures.GetHighestCustomerCountByMonth();
+            return Call(sql);
+        }
+
+        internal static object GetMostViewedMovies()
+        {
+            string sql = SqlProcedures.GetMostViewedMovies();
+            return Call(sql);
+        }
+
+        internal static object GetHighestCustomerCountByDay()
+        {
+            string sql = SqlProcedures.GetHighestCustomerCountByDay();
+            return Call(sql);
+        }
+
+        internal static object GetTopGrossingMovies()
+        {
+            string sql = SqlProcedures.GetTopGrossingMovies();
+            return Call(sql);
         }
 
         public static bool Connect(string DataSource, string Database, string Username, string Password)
@@ -99,38 +141,70 @@ namespace MovieTheaterApplication
             MessageBox.Show("All procedures successfully run");
         }
 
-        public static DataTable SearchForMovie(MovieSearchType type, string input)
+        public static DataTable SearchForMovie(MovieSearchType type, MoviesToShow moviesToShow, string input)
         {
             string sql;
             if (input == "")
             {
-                sql = SqlProcedures.RetrieveMovies();
-                return Call(sql);
+                type = MovieSearchType.None;
             }
 
-            switch (type)
+            if(moviesToShow == MoviesToShow.AllMovies)
             {
-                case MovieSearchType.None:
-                    {
-                        sql = SqlProcedures.GetMovies(input);
-                        return Call(sql);
-                    }
-                case MovieSearchType.MovieTitle:
-                    {
-                        sql = SqlProcedures.GetMoviesByTitle(input);
-                        return Call(sql);
-                    }
-                case MovieSearchType.MovieGenre:
-                    {
-                        sql = SqlProcedures.GetMoviesByGenre(input);
-                        return Call(sql);
-                    }
-                case MovieSearchType.MovieDirector:
-                    {
-                        sql = SqlProcedures.GetMoviesByDirector(input);
-                        return Call(sql);
-                    }
+                switch (type)
+                {
+                    case MovieSearchType.None:
+                        {
+                            sql = SqlProcedures.RetrieveMovies();
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieTitle:
+                        {
+                            sql = SqlProcedures.GetMoviesByTitle(input);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieGenre:
+                        {
+                            sql = SqlProcedures.GetMoviesByGenre(input);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieDirector:
+                        {
+                            sql = SqlProcedures.GetMoviesByDirector(input);
+                            return Call(sql);
+                        }
+                }
             }
+            else
+            {
+                bool isRemoved = (moviesToShow == MoviesToShow.OnlyUnavailable);
+
+                switch (type)
+                {
+                    case MovieSearchType.None:
+                        {
+                            sql = SqlProcedures.GetFilteredMovies(isRemoved);
+                            return Call(sql);
+                            
+                        }
+                    case MovieSearchType.MovieTitle:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByTitle(input, isRemoved);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieGenre:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByGenre(input, isRemoved);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieDirector:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByDirector(input, isRemoved);
+                            return Call(sql);
+                        }
+                }
+            }
+            
             return null;
         }
 
@@ -158,7 +232,7 @@ namespace MovieTheaterApplication
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.Message);
             }
 
             List<string> columns = new List<string>();

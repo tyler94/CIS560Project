@@ -19,38 +19,54 @@ namespace MovieTheaterApplication
         public ActiveMoviesForm()
         {
             InitializeComponent();
-            AvailableMovies = false;
-            UnavailableMovies = false;
+            AvailableMovies = true;
+            UnavailableMovies = true;
+            uxSearchOptionsBox.SelectedIndex = 0;
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
-            if(ValidateRadioButtons())
+            if (ValidateRadioButtons())
             {
-                switch(uxSearchOptionsBox.SelectedIndex)
+                Bridge.MoviesToShow moviesToShow;
+
+                if (uxActiveShowings.Checked)
+                {
+                    moviesToShow = Bridge.MoviesToShow.OnlyAvailable;
+                }
+                else if (uxInactiveShowings.Checked)
+                {
+                    moviesToShow = Bridge.MoviesToShow.OnlyUnavailable;
+                }
+                else
+                {
+                    moviesToShow = Bridge.MoviesToShow.AllMovies;
+                }
+
+                switch (uxSearchOptionsBox.SelectedIndex)
                 {
                     // None
                     case 0:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.None, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.None, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Title
                     case 1:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Director
                     case 2:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieDirector, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieDirector, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Genre
                     case 3:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieGenre, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieGenre, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                 }

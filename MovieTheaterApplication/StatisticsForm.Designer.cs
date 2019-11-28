@@ -39,18 +39,20 @@
             // uxStatisticOptions
             // 
             this.uxStatisticOptions.FormattingEnabled = true;
-            this.uxStatisticOptions.Location = new System.Drawing.Point(12, 130);
+            this.uxStatisticOptions.Location = new System.Drawing.Point(9, 106);
+            this.uxStatisticOptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxStatisticOptions.Name = "uxStatisticOptions";
-            this.uxStatisticOptions.Size = new System.Drawing.Size(766, 157);
+            this.uxStatisticOptions.Size = new System.Drawing.Size(576, 124);
             this.uxStatisticOptions.TabIndex = 0;
             // 
-            // uxSearchOptionsLabel
+            // uxSerachOptionsLabel
             // 
             this.uxSerachOptionsLabel.AutoSize = true;
             this.uxSerachOptionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxSerachOptionsLabel.Location = new System.Drawing.Point(7, 12);
-            this.uxSerachOptionsLabel.Name = "uxSearchOptionsLabel";
-            this.uxSerachOptionsLabel.Size = new System.Drawing.Size(92, 20);
+            this.uxSerachOptionsLabel.Location = new System.Drawing.Point(5, 10);
+            this.uxSerachOptionsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.uxSerachOptionsLabel.Name = "uxSerachOptionsLabel";
+            this.uxSerachOptionsLabel.Size = new System.Drawing.Size(77, 17);
             this.uxSerachOptionsLabel.TabIndex = 9;
             this.uxSerachOptionsLabel.Text = "Search By:";
             // 
@@ -65,41 +67,46 @@
             "Highest Customer count by Year",
             "Highest Customer count by Month",
             "Highest Customer count by Day"});
-            this.uxStatisticTypes.Location = new System.Drawing.Point(105, 12);
+            this.uxStatisticTypes.Location = new System.Drawing.Point(79, 10);
+            this.uxStatisticTypes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxStatisticTypes.Name = "uxStatisticTypes";
-            this.uxStatisticTypes.Size = new System.Drawing.Size(121, 24);
+            this.uxStatisticTypes.Size = new System.Drawing.Size(272, 21);
             this.uxStatisticTypes.TabIndex = 8;
+            this.uxStatisticTypes.SelectedIndexChanged += new System.EventHandler(this.uxStatisticTypes_SelectedIndexChanged);
             // 
             // uxMovieEntries
             // 
             this.uxMovieEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxMovieEntries.Location = new System.Drawing.Point(12, 293);
+            this.uxMovieEntries.Location = new System.Drawing.Point(9, 238);
+            this.uxMovieEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxMovieEntries.Name = "uxMovieEntries";
             this.uxMovieEntries.RowHeadersWidth = 51;
             this.uxMovieEntries.RowTemplate.Height = 24;
-            this.uxMovieEntries.Size = new System.Drawing.Size(953, 241);
+            this.uxMovieEntries.Size = new System.Drawing.Size(715, 196);
             this.uxMovieEntries.TabIndex = 10;
             // 
             // uxStatisticOptionsLabel
             // 
             this.uxStatisticOptionsLabel.AutoSize = true;
             this.uxStatisticOptionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxStatisticOptionsLabel.Location = new System.Drawing.Point(15, 107);
+            this.uxStatisticOptionsLabel.Location = new System.Drawing.Point(11, 87);
+            this.uxStatisticOptionsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.uxStatisticOptionsLabel.Name = "uxStatisticOptionsLabel";
-            this.uxStatisticOptionsLabel.Size = new System.Drawing.Size(133, 20);
+            this.uxStatisticOptionsLabel.Size = new System.Drawing.Size(111, 17);
             this.uxStatisticOptionsLabel.TabIndex = 11;
             this.uxStatisticOptionsLabel.Text = "Display Options:";
             // 
             // StatisticsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 546);
+            this.ClientSize = new System.Drawing.Size(733, 444);
             this.Controls.Add(this.uxStatisticOptionsLabel);
             this.Controls.Add(this.uxMovieEntries);
             this.Controls.Add(this.uxSerachOptionsLabel);
             this.Controls.Add(this.uxStatisticTypes);
             this.Controls.Add(this.uxStatisticOptions);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxMovieEntries)).EndInit();
