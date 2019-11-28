@@ -48,9 +48,21 @@ namespace MovieTheaterApplication
             return Call(sql);
         }
 
-        internal static object GetHighestCustomerCountByYear()
+        internal static object GetHighestCustomerCountByYear(int day, int month, int year)
         {
-            string sql = SqlProcedures.GetHighestCustomerCountByYear();
+            string sql = SqlProcedures.GetHighestCustomerCountByYear(day, month, year);
+            return Call(sql);
+        }
+
+        internal static object GetHighestCustomerCountByMonth(int day, int month, int year)
+        {
+            string sql = SqlProcedures.GetHighestCustomerCountByMonth(day, month, year);
+            return Call(sql);
+        }
+
+        internal static object GetHighestCustomerCountByDay(int day, int month, int year)
+        {
+            string sql = SqlProcedures.GetHighestCustomerCountByDay(day, month, year);
             return Call(sql);
         }
 
@@ -60,21 +72,9 @@ namespace MovieTheaterApplication
             return Call(sql);
         }
 
-        internal static object GetHighestCustomerCountByMonth()
-        {
-            string sql = SqlProcedures.GetHighestCustomerCountByMonth();
-            return Call(sql);
-        }
-
         internal static object GetMostViewedMovies()
         {
             string sql = SqlProcedures.GetMostViewedMovies();
-            return Call(sql);
-        }
-
-        internal static object GetHighestCustomerCountByDay()
-        {
-            string sql = SqlProcedures.GetHighestCustomerCountByDay();
             return Call(sql);
         }
 

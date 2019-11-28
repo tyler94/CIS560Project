@@ -63,31 +63,6 @@ namespace MovieTheaterApplication
             return "EXEC Movie.GetFilteredMoviesByGenre \"" + FullName + "\", " + num + ";";
         }
 
-        public static string GetHighestCustomerCountByYear()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string GetMostPopularAgeGroupOverall()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string GetMostPopularAgeGroupByMovie()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string GetHighestCustomerCountByMonth()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string GetMostViewedMovies()
-        {
-            throw new NotImplementedException();
-        }
-
         public static string GetFilteredMovies(bool IsRemoved)
         {
             int num;
@@ -98,14 +73,39 @@ namespace MovieTheaterApplication
             return "EXEC Movie.GetFilteredMoviesByTitle '', " + num + ";";
         }
 
-        internal static object GetTopGrossingMovies()
+        public static string GetHighestCustomerCountByYear(int day, int month, int year)
         {
-            throw new NotImplementedException();
+            return "EXEC Movie.GetHighestCustomerCountByYear '" + month + "-" + day + "-" + year + "'";
         }
 
-        internal static object GetHighestCustomerCountByDay()
+        public static string GetHighestCustomerCountByMonth(int day, int month, int year)
         {
-            throw new NotImplementedException();
+            return "EXEC Movie.GetHighestCustomerCountByMonth '" + month + "-" + day + "-" + year + "'";
+        }
+
+        public static string GetHighestCustomerCountByDay(int day, int month, int year)
+        {
+            return "EXEC Movie.GetHighestCustomerCountByDay '" + month + "-" + day + "-" + year + "'";
+        }
+
+        public static string GetMostPopularAgeGroupOverall()
+        {
+            return "EXEC Movie.GetMostPopularAgeGroupOverall";
+        }
+
+        public static string GetMostPopularAgeGroupByMovie()
+        {
+            return "EXEC Movie.GetMostPopularAgeGroupByMovie";
+        }
+
+        public static string GetMostViewedMovies()
+        {
+            return "EXEC Movie.GetMostViewedMovies";
+        }
+
+        public static string GetTopGrossingMovies()
+        {
+            return "EXEC Movie.GetTopGrossingMovies";
         }
     }
 }

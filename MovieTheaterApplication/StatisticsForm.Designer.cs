@@ -40,7 +40,7 @@
             // 
             this.uxStatisticOptions.FormattingEnabled = true;
             this.uxStatisticOptions.Location = new System.Drawing.Point(9, 106);
-            this.uxStatisticOptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxStatisticOptions.Margin = new System.Windows.Forms.Padding(2);
             this.uxStatisticOptions.Name = "uxStatisticOptions";
             this.uxStatisticOptions.Size = new System.Drawing.Size(576, 124);
             this.uxStatisticOptions.TabIndex = 0;
@@ -67,8 +67,8 @@
             "Highest Customer count by Year",
             "Highest Customer count by Month",
             "Highest Customer count by Day"});
-            this.uxStatisticTypes.Location = new System.Drawing.Point(79, 10);
-            this.uxStatisticTypes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxStatisticTypes.Location = new System.Drawing.Point(86, 9);
+            this.uxStatisticTypes.Margin = new System.Windows.Forms.Padding(2);
             this.uxStatisticTypes.Name = "uxStatisticTypes";
             this.uxStatisticTypes.Size = new System.Drawing.Size(272, 21);
             this.uxStatisticTypes.TabIndex = 8;
@@ -78,7 +78,7 @@
             // 
             this.uxMovieEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uxMovieEntries.Location = new System.Drawing.Point(9, 238);
-            this.uxMovieEntries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxMovieEntries.Margin = new System.Windows.Forms.Padding(2);
             this.uxMovieEntries.Name = "uxMovieEntries";
             this.uxMovieEntries.RowHeadersWidth = 51;
             this.uxMovieEntries.RowTemplate.Height = 24;
@@ -106,7 +106,7 @@
             this.Controls.Add(this.uxSerachOptionsLabel);
             this.Controls.Add(this.uxStatisticTypes);
             this.Controls.Add(this.uxStatisticOptions);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             ((System.ComponentModel.ISupportInitialize)(this.uxMovieEntries)).EndInit();
