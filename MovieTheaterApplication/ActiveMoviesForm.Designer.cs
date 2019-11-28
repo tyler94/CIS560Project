@@ -50,7 +50,7 @@
             this.uxMovieEntries.Name = "uxMovieEntries";
             this.uxMovieEntries.RowHeadersWidth = 51;
             this.uxMovieEntries.RowTemplate.Height = 24;
-            this.uxMovieEntries.Size = new System.Drawing.Size(509, 175);
+            this.uxMovieEntries.Size = new System.Drawing.Size(500, 338);
             this.uxMovieEntries.TabIndex = 0;
             // 
             // uxActiveShowings
@@ -82,6 +82,7 @@
             // uxAllMovies
             // 
             this.uxAllMovies.AutoSize = true;
+            this.uxAllMovies.Checked = true;
             this.uxAllMovies.Location = new System.Drawing.Point(9, 164);
             this.uxAllMovies.Margin = new System.Windows.Forms.Padding(2);
             this.uxAllMovies.Name = "uxAllMovies";
@@ -167,7 +168,7 @@
             this.AcceptButton = this.uxSearchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(520, 414);
+            this.ClientSize = new System.Drawing.Size(520, 579);
             this.Controls.Add(this.uxModifyMovieButton);
             this.Controls.Add(this.uxAddMovie);
             this.Controls.Add(this.uxSearchEntry);
