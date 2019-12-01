@@ -34,7 +34,6 @@ namespace MovieTheaterApplication
                 }
                 catch
                 {
-
                     MessageBox.Show("Length must be an integer!");
                     return;
                 }
