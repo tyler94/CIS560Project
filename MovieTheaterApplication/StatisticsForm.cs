@@ -19,13 +19,71 @@ namespace MovieTheaterApplication
 
         private void uxStatisticTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uxDateEntryLabel.Visible = false;
-            uxYearEntryBox.Visible = false;
-            uxYearLabel.Visible = false;
-            uxMonthEntryBox.Visible = false;
-            uxMonthLabel.Visible = false;
-            uxDayEntryBox.Visible = false;
-            uxDayLabel.Visible = false;
+            uxDateEntryLabel.Enabled = false;
+            uxYearEntryBox.Enabled = false;
+            uxYearLabel.Enabled = false;
+            uxMonthEntryBox.Enabled = false;
+            uxMonthLabel.Enabled = false;
+            uxDayEntryBox.Enabled = false;
+            uxDayLabel.Enabled = false;
+            switch (uxStatisticTypes.SelectedIndex)
+            {
+                // Highest Grossing Films
+                case 0:
+                    {
+                        break;
+                    }
+                // Highest Number of Viewings
+                case 1:
+                    {
+                        break;
+                    }
+                // Most popular age group by film
+                case 2:
+                    {
+                        break;
+                    }
+                // Most popular age group overall
+                case 3:
+                    {
+                        break;
+                    }
+                // Highest Customer count by year
+                case 4:
+                    {
+                        uxDateEntryLabel.Enabled = true;
+                        uxYearEntryBox.Enabled = true;
+                        uxYearLabel.Enabled = true;
+                        break;
+                    }
+                // Highest customer count by month
+                case 5:
+                    {
+                        uxDateEntryLabel.Enabled = true;
+                        uxYearEntryBox.Enabled = true;
+                        uxYearLabel.Enabled = true;
+                        uxMonthEntryBox.Enabled = true;
+                        uxMonthLabel.Enabled = true;
+                        break;
+                    }
+                // Highest customer count by day
+                case 6:
+                    {
+                        uxDateEntryLabel.Enabled = true;
+                        uxYearEntryBox.Enabled = true;
+                        uxYearLabel.Enabled = true;
+                        uxMonthEntryBox.Enabled = true;
+                        uxMonthLabel.Enabled = true;
+                        uxDayEntryBox.Enabled = true;
+                        uxDayLabel.Enabled = true;
+                        break;
+                    }
+
+            }
+        }
+
+        private void uxRun_Click(object sender, EventArgs e)
+        {
             switch (uxStatisticTypes.SelectedIndex)
             {
                 // Highest Grossing Films
@@ -55,40 +113,30 @@ namespace MovieTheaterApplication
                 // Highest Customer count by year
                 case 4:
                     {
-                        MessageBox.Show("This will require a year/date input, defaulting to 2019");
-                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByYear(1, 1, 2019);
-                        uxDateEntryLabel.Visible = true;
-                        uxYearEntryBox.Visible = true;
-                        uxYearLabel.Visible = true;
+                        int day = (int)uxDayEntryBox.Value;
+                        int month = (int)uxMonthEntryBox.Value;
+                        int year = (int)uxYearEntryBox.Value;
+                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByYear(day, month, year);
                         break;
                     }
                 // Highest customer count by month
                 case 5:
                     {
-                        MessageBox.Show("This will require a month/date input, defaulting to 1 (January)");
-                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByMonth(1, 1, 2019);
-                        uxDateEntryLabel.Visible = true;
-                        uxYearEntryBox.Visible = true;
-                        uxYearLabel.Visible = true;
-                        uxMonthEntryBox.Visible = true;
-                        uxMonthLabel.Visible = true;
+                        int day = (int)uxDayEntryBox.Value;
+                        int month = (int)uxMonthEntryBox.Value;
+                        int year = (int)uxYearEntryBox.Value;
+                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByMonth(day, month, year);
                         break;
                     }
                 // Highest customer count by day
                 case 6:
                     {
-                        MessageBox.Show("This will require a day/date input, defaulting to 1st");
-                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByDay(1, 1, 2019);
-                        uxDateEntryLabel.Visible = true;
-                        uxYearEntryBox.Visible = true;
-                        uxYearLabel.Visible = true;
-                        uxMonthEntryBox.Visible = true;
-                        uxMonthLabel.Visible = true;
-                        uxDayEntryBox.Visible = true;
-                        uxDayLabel.Visible = true;
+                        int day = (int) uxDayEntryBox.Value;
+                        int month = (int) uxMonthEntryBox.Value;
+                        int year = (int) uxYearEntryBox.Value;
+                        uxMovieEntries.DataSource = Bridge.GetHighestCustomerCountByDay(day, month, year);
                         break;
                     }
-
             }
         }
     }
