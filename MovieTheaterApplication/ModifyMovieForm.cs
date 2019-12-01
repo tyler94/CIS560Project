@@ -15,6 +15,9 @@ namespace MovieTheaterApplication
         public ModifyMovieForm()
         {
             InitializeComponent();
+            uxDirectorBox.DataSource = Bridge.RetrieveDirectors();
+            uxStudioBox.DataSource = Bridge.RetrieveStudios();
+            uxGenreBox.DataSource = Bridge.RetrieveGenres();
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)

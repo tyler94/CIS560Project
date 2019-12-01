@@ -158,5 +158,10 @@ namespace MovieTheaterApplication
         {
             return "EXEC Movie.RetrieveProductionCompanies";
         }
+
+        public static string RetrieveGenres()
+        {
+            return "EXEC Movie.RetrieveGenres";
+        }
     }
 }

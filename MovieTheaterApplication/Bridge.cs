@@ -310,5 +310,16 @@ namespace MovieTheaterApplication
             }
             return studios;
         }
+
+        public static List<string> RetrieveGenres()
+        {
+            DataTable temp = Call(SqlProcedures.RetrieveGenres());
+            List<string> genres = new List<string>();
+            for (int i = 0; i < temp.Rows.Count; i++)
+            {
+                genres.Add(temp.Rows[i][1].ToString());
+            }
+            return genres;
+        }
     }
 }
