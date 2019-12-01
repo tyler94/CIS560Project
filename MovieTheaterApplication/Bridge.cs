@@ -162,6 +162,13 @@ namespace MovieTheaterApplication
             return temp.Rows[0][0].ToString();
         }
 
+        public static string FetchProductionCompany(int id)
+        {
+            string sql = SqlProcedures.FetchProductionCompany(id);
+            DataTable temp = Call(sql);
+            return temp.Rows[0][0].ToString();
+        }
+
         public static DataTable SearchForMovie(MovieSearchType type, MoviesToShow moviesToShow, string input)
         {
             string sql;

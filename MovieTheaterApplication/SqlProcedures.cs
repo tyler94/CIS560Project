@@ -133,5 +133,10 @@ namespace MovieTheaterApplication
         {
             return "EXEC Movie.FetchDirector " + id;
         }
+
+        public static string FetchProductionCompany(int id)
+        {
+            return "EXEC Movie.FetchProductionCompany " + id;
+        }
     }
 }

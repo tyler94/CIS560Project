@@ -33,12 +33,24 @@ namespace MovieTheaterApplication
             if (uxMovieEntries.SelectedRows.Count == 0)
                 return;
             DataGridViewRow selected = uxMovieEntries.SelectedRows[0];
-            //MessageBox.Show(selected.Cells[0].Value.ToString());
-            //selected.Cells[0].OwningColumn.HeaderText
             uxTitleBox.Text = selected.Cells[1].Value.ToString();
+
             int directorId;
             int.TryParse(selected.Cells[2].Value.ToString(), out directorId);
             uxDirectorBox.Text = Bridge.FetchDirector(directorId);
+
+            int studioId;
+            int.TryParse(selected.Cells[3].Value.ToString(), out studioId);
+            uxStudioBox.Text = Bridge.FetchProductionCompany(studioId);
+
+            string dateFull = selected.Cells[4].Value.ToString();
+            string date = dateFull.Substring(0, dateFull.IndexOf(' ')).Replace('/', '-');
+            uxReleaseDateBox.Text = date;
+
+            int length;
+            int.TryParse(selected.Cells[6].Value.ToString(), out length);
+            uxLengthBox.Value = length;
+            uxRatingBox.Text = selected.Cells[7].Value.ToString();
         }
 
         private void uxSubmit_Click(object sender, EventArgs e)
