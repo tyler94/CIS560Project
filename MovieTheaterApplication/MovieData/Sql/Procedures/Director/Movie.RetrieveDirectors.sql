@@ -5,5 +5,6 @@ CREATE PROCEDURE Movie.RetrieveDirectors
 AS
 
 SELECT D.DirectorId, D.FullName, D.DateOfBirth, D.Birthplace
-FROM Movie.Director D;
+FROM Movie.Director D
+ORDER BY D.FullName;
 GO

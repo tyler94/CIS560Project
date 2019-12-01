@@ -136,6 +136,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMoviesByGenreDisplay.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.GetMoviesByTitleDisplay.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.RetrieveMovies.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.RetrieveMoviesDisplay.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Movie\Movie.SaveMovie.sql"
 
 

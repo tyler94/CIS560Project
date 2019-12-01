@@ -73,6 +73,71 @@ namespace MovieTheaterApplication
             return "EXEC Movie.GetFilteredMoviesByTitle '', " + num + ";";
         }
 
+        public static string GetMoviesDisplay(string MovieName)
+        {
+            return "EXEC Movie.GetMoviesDisplay \"" + MovieName + "\"";
+        }
+
+        public static string RetrieveMoviesDisplay()
+        {
+            return "EXEC Movie.RetrieveMoviesDisplay";
+        }
+
+        public static string GetMoviesByDirectorDisplay(string input)
+        {
+            return "EXEC Movie.GetMoviesByDirectorDisplay \"" + input + "\"";
+        }
+
+        public static string GetMoviesByGenreDisplay(string input)
+        {
+            return "EXEC Movie.GetMoviesByGenreDisplay \"" + input + "\"";
+        }
+
+        public static string GetMoviesByTitleDisplay(string input)
+        {
+            return "EXEC Movie.GetMoviesByTitleDisplay \"" + input + "\"";
+        }
+
+        public static string GetFilteredMoviesByDirectorDisplay(string FullName, bool IsRemoved)
+        {
+            int num;
+            if (IsRemoved)
+                num = 1;
+            else
+                num = 0;
+            return "EXEC Movie.GetFilteredMoviesByDirectorDisplay \"" + FullName + "\", " + num + ";";
+        }
+
+        public static string GetFilteredMoviesByTitleDisplay(string FullName, bool IsRemoved)
+        {
+            int num;
+            if (IsRemoved)
+                num = 1;
+            else
+                num = 0;
+            return "EXEC Movie.GetFilteredMoviesByTitleDisplay \"" + FullName + "\", " + num + ";";
+        }
+
+        public static string GetFilteredMoviesByGenreDisplay(string FullName, bool IsRemoved)
+        {
+            int num;
+            if (IsRemoved)
+                num = 1;
+            else
+                num = 0;
+            return "EXEC Movie.GetFilteredMoviesByGenreDisplay \"" + FullName + "\", " + num + ";";
+        }
+
+        public static string GetFilteredMoviesDisplay(bool IsRemoved)
+        {
+            int num;
+            if (IsRemoved)
+                num = 1;
+            else
+                num = 0;
+            return "EXEC Movie.GetFilteredMoviesByTitleDisplay '', " + num + ";";
+        }
+
         public static string GetHighestCustomerCountByYear(int day, int month, int year)
         {
             return "EXEC Movie.GetHighestCustomerCountByYear '" + month + "-" + day + "-" + year + "'";

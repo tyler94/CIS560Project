@@ -50,25 +50,25 @@ namespace MovieTheaterApplication
                     // None
                     case 0:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.None, moviesToShow, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovieDisplay(Bridge.MovieSearchType.None, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Title
                     case 1:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, moviesToShow, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovieDisplay(Bridge.MovieSearchType.MovieTitle, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Director
                     case 2:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieDirector, moviesToShow, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovieDisplay(Bridge.MovieSearchType.MovieDirector, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                     // Movie Genre
                     case 3:
                         {
-                            uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieGenre, moviesToShow, uxSearchEntry.Text);
+                            uxMovieEntries.DataSource = Bridge.SearchForMovieDisplay(Bridge.MovieSearchType.MovieGenre, moviesToShow, uxSearchEntry.Text);
                             break;
                         }
                 }

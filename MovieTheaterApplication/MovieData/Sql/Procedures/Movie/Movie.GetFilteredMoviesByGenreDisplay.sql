@@ -1,12 +1,12 @@
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetFilteredMoviesByGenre') AND type in (N'P', N'PC'))
-  DROP PROCEDURE Movie.GetFilteredMoviesByGenre
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetFilteredMoviesByGenreDisplay') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.GetFilteredMoviesByGenreDisplay
 GO
-CREATE PROCEDURE Movie.GetFilteredMoviesByGenre
+CREATE PROCEDURE Movie.GetFilteredMoviesByGenreDisplay
 	@GenreName NVARCHAR(128),
 	@IsRemoved BIT
 AS
 
-SELECT M.MovieId, M.MovieName, D.FullName AS DirectorName, P.CompanyName AS ProductionCompanyName, M.ReleaseDate, M.[Length], M.FilmRating
+SELECT M.MovieName, D.FullName AS DirectorName, P.CompanyName AS ProductionCompanyName, M.ReleaseDate, M.[Length], M.FilmRating
 FROM Movie.Genre G
 INNER JOIN Movie.MovieGenre MG ON MG.GenreId = G.GenreId
 INNER JOIN Movie.Movie M ON Mg.MovieId = M.MovieId

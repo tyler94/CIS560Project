@@ -15,7 +15,7 @@ namespace MovieTheaterApplication
     {
         public delegate void AuthenticateDelegate(string DataSource, string Database, string Username, string Password);
         public enum MovieSearchType { None, MovieTitle, MovieDirector, MovieGenre }
-        public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable}
+        public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable }
 
         private static SqlConnection connection;
         private static bool response = false;
@@ -122,7 +122,7 @@ namespace MovieTheaterApplication
                         while (!sr2.EndOfStream)
                         {
                             string ln = sr2.ReadLine();
-                            if(ln.ToLower() == "go")
+                            if (ln.ToLower() == "go")
                             {
                                 Run(sql, line);
                                 sql = "";
@@ -132,7 +132,7 @@ namespace MovieTheaterApplication
                                 sql += ln + ' ';
                             }
                         }
-                        if(sql != "")
+                        if (sql != "")
                             Run(sql, line);
                     }
                 }
@@ -177,7 +177,7 @@ namespace MovieTheaterApplication
                 type = MovieSearchType.None;
             }
 
-            if(moviesToShow == MoviesToShow.AllMovies)
+            if (moviesToShow == MoviesToShow.AllMovies)
             {
                 switch (type)
                 {
@@ -213,7 +213,7 @@ namespace MovieTheaterApplication
                         {
                             sql = SqlProcedures.GetFilteredMovies(isRemoved);
                             return Call(sql);
-                            
+
                         }
                     case MovieSearchType.MovieTitle:
                         {
@@ -232,13 +232,80 @@ namespace MovieTheaterApplication
                         }
                 }
             }
-            
+
+            return null;
+        }
+
+        public static DataTable SearchForMovieDisplay(MovieSearchType type, MoviesToShow moviesToShow, string input)
+        {
+            string sql;
+            if (input == "")
+            {
+                type = MovieSearchType.None;
+            }
+
+            if (moviesToShow == MoviesToShow.AllMovies)
+            {
+                switch (type)
+                {
+                    case MovieSearchType.None:
+                        {
+                            sql = SqlProcedures.RetrieveMoviesDisplay();
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieTitle:
+                        {
+                            sql = SqlProcedures.GetMoviesByTitleDisplay(input);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieGenre:
+                        {
+                            sql = SqlProcedures.GetMoviesByGenreDisplay(input);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieDirector:
+                        {
+                            sql = SqlProcedures.GetMoviesByDirectorDisplay(input);
+                            return Call(sql);
+                        }
+                }
+            }
+            else
+            {
+                bool isRemoved = (moviesToShow == MoviesToShow.OnlyUnavailable);
+
+                switch (type)
+                {
+                    case MovieSearchType.None:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesDisplay(isRemoved);
+                            return Call(sql);
+
+                        }
+                    case MovieSearchType.MovieTitle:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByTitleDisplay(input, isRemoved);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieGenre:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByGenreDisplay(input, isRemoved);
+                            return Call(sql);
+                        }
+                    case MovieSearchType.MovieDirector:
+                        {
+                            sql = SqlProcedures.GetFilteredMoviesByDirectorDisplay(input, isRemoved);
+                            return Call(sql);
+                        }
+                }
+            }
+
             return null;
         }
 
         public static void Run(string sql, string file)
         {
-            
+
             SqlCommand command = new SqlCommand(sql, connection);
             try
             {
@@ -273,7 +340,7 @@ namespace MovieTheaterApplication
 
             DataTable dataTable = new DataTable();
             dataTable.Columns.AddRange(dataColumns.ToArray());
-            
+
             while (dataReader.Read())
             {
                 List<string> items = new List<string>();
@@ -283,7 +350,7 @@ namespace MovieTheaterApplication
                 }
                 dataTable.Rows.Add((object[])items.ToArray());
             }
-            
+
             dataReader.Close();
             return dataTable;
         }
@@ -292,9 +359,9 @@ namespace MovieTheaterApplication
         {
             DataTable temp = Call(SqlProcedures.RetrieveDirectors());
             List<string> directors = new List<string>();
-            for(int i = 0; i < temp.Rows.Count; i++)
+            for (int i = 0; i < temp.Rows.Count; i++)
             {
-                if(temp.Rows[i][1].ToString()[0] != '?')
+                if (temp.Rows[i][1].ToString()[0] != '?')
                     directors.Add(temp.Rows[i][1].ToString());
             }
             return directors;
