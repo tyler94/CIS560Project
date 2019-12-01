@@ -18,6 +18,7 @@ namespace MovieTheaterApplication
         public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable}
 
         private static SqlConnection connection;
+        private static bool response = false;
 
         public static bool Connect()
         {
@@ -25,7 +26,6 @@ namespace MovieTheaterApplication
             {
                 return true;
             }
-            bool response = false;
 
             Thread gettingLoginInfo = new Thread(() => new LoginForm(Login, Config.Server, Config.Database, Config.Username, Config.Password).ShowDialog());
             gettingLoginInfo.Start();
@@ -35,11 +35,11 @@ namespace MovieTheaterApplication
             // 'username' and 'password' fields should be set when the LoginForm calls the Login function below.
             // If they are not set, then return false
             return response;
+        }
 
-            void Login(string DataSource, string Database, string Username, string Password)
-            {
-                response = Connect(DataSource, Database, Username, Password);
-            }
+        private static void Login(string DataSource, string Database, string Username, string Password)
+        {
+            response = Connect(DataSource, Database, Username, Password);
         }
 
         internal static object GetMostPopularAgeGroupOverall()
