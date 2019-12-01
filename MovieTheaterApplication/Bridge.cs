@@ -141,6 +141,27 @@ namespace MovieTheaterApplication
             MessageBox.Show("All procedures successfully run");
         }
 
+        public static bool AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
+        {
+            try
+            {
+                Call(SqlProcedures.AddMovie(MovieName, DirectorName, ProductionCompanyName, date, rating, length));
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
+        public static string FetchDirector(int id)
+        {
+            string sql = SqlProcedures.FetchDirector(id);
+            DataTable temp = Call(sql);
+            return temp.Rows[0][0].ToString();
+        }
+
         public static DataTable SearchForMovie(MovieSearchType type, MoviesToShow moviesToShow, string input)
         {
             string sql;

@@ -21,12 +21,36 @@ namespace MovieTheaterApplication
         {
             if(CheckEmptyFields())
             {
+                //AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
+                string movieName = uxTitleBox.Text;
+                string directorName = uxDirectorBox.Text;
+                string studio = uxStudioBox.Text;
+                string date = uxReleaseDateBox.Text;
+                string rating = uxRatingBox.Text;
+                int length;
+                try
+                {
+                    int.TryParse(uxLengthBox.Text, out length);
+                }
+                catch
+                {
 
+                    MessageBox.Show("Length must be an integer!");
+                    return;
+                }
+
+                if (Bridge.AddMovie(movieName, directorName, studio, date, rating, length))
+                {
+                    MessageBox.Show("Successfully added movie!");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add movie!");
+                }
             }
             else
             {
-                MessageBox.Show("At least one field isn't filled out. Be sure to fill out all the fields." +
-                    "\n Note: Movies need at least one actor.");
+                MessageBox.Show("At least one field isn't filled out. Be sure to fill out all the fields.");
             }
         }
 
@@ -48,15 +72,7 @@ namespace MovieTheaterApplication
             {
                 return false;
             }
-            else if(uxEndDateBox.Text == "")
-            {
-                return false;
-            }
             else if(uxStudioBox.Text == "")
-            {
-                return false;
-            }
-            else if(uxGenreBox.Text == "")
             {
                 return false;
             }
@@ -68,14 +84,20 @@ namespace MovieTheaterApplication
             {
                 return false;
             }
-            else if(uxActorOneBox.Text == "" && uxActorTwoBox.Text == "" && uxActorThreeBox.Text == "" && uxActorFourBox.Text == "")
-            {
-                return false;
-            }
             else
             {
                 return true;
             }
+        }
+
+        private void uxReleaseDateBox_MouseHover(object sender, EventArgs e)
+        {
+            uxToolTip.Show("month-day-year", uxReleaseDateBox);
+        }
+
+        private void uxEndDateBox_MouseHover(object sender, EventArgs e)
+        {
+            uxToolTip.Show("month-day-year", uxEndDateBox);
         }
     }
 }

@@ -107,5 +107,31 @@ namespace MovieTheaterApplication
         {
             return "EXEC Movie.GetTopGrossingMovies";
         }
+
+        public static string CreateMovie(string MovieName, int DirectorId, int ProductionCompanyId, int day, int month, int year, string rating)
+        {
+            return "EXEC Movie.CreateMovie "
+                + MovieName + ", "
+                + DirectorId + ", "
+                + ProductionCompanyId + ", "
+                + "'" + month + "-" + day + "-" + year + "'"
+                + rating;
+        }
+
+        public static string AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
+        {
+            return "EXEC Movie.AddMovie "
+                + MovieName + ", "
+                + DirectorName + ", "
+                + ProductionCompanyName + ", "
+                + "'" + date + "'" + ", "
+                + rating + ", "
+                + length;
+        }
+
+        public static string FetchDirector(int id)
+        {
+            return "EXEC Movie.FetchDirector " + id;
+        }
     }
 }
