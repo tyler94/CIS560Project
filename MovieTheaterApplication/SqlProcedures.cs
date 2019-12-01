@@ -148,5 +148,15 @@ namespace MovieTheaterApplication
         {
             return "EXEC Movie.GetProductionCompanies '" + Studio + "'";
         }
+
+        public static string RetrieveDirectors()
+        {
+            return "EXEC Movie.RetrieveDirectors";
+        }
+
+        public static string RetrieveStudios()
+        {
+            return "EXEC Movie.RetrieveProductionCompanies";
+        }
     }
 }

@@ -287,5 +287,28 @@ namespace MovieTheaterApplication
             dataReader.Close();
             return dataTable;
         }
+
+        public static List<string> RetrieveDirectors()
+        {
+            DataTable temp = Call(SqlProcedures.RetrieveDirectors());
+            List<string> directors = new List<string>();
+            for(int i = 0; i < temp.Rows.Count; i++)
+            {
+                if(temp.Rows[i][1].ToString()[0] != '?')
+                    directors.Add(temp.Rows[i][1].ToString());
+            }
+            return directors;
+        }
+
+        public static List<string> RetrieveStudios()
+        {
+            DataTable temp = Call(SqlProcedures.RetrieveStudios());
+            List<string> studios = new List<string>();
+            for (int i = 0; i < temp.Rows.Count; i++)
+            {
+                studios.Add(temp.Rows[i][1].ToString());
+            }
+            return studios;
+        }
     }
 }

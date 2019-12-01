@@ -22,6 +22,8 @@ namespace MovieTheaterApplication
             AvailableMovies = true;
             UnavailableMovies = true;
             uxSearchOptionsBox.SelectedIndex = 0;
+
+            Bridge.RetrieveDirectors();
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)

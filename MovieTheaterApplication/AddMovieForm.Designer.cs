@@ -35,7 +35,6 @@
             this.uxReleaseDateBox = new System.Windows.Forms.TextBox();
             this.uxReleaseDateLabel = new System.Windows.Forms.Label();
             this.uxDirectorLabel = new System.Windows.Forms.Label();
-            this.uxDirectorBox = new System.Windows.Forms.TextBox();
             this.uxTitleLabel = new System.Windows.Forms.Label();
             this.uxTitleBox = new System.Windows.Forms.TextBox();
             this.uxLengthLabel = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.uxGenreLabel = new System.Windows.Forms.Label();
             this.uxGenreBox = new System.Windows.Forms.TextBox();
             this.uxStudioLabel = new System.Windows.Forms.Label();
-            this.uxStudioBox = new System.Windows.Forms.TextBox();
             this.uxApplyButton = new System.Windows.Forms.Button();
             this.uxActorOneBox = new System.Windows.Forms.TextBox();
             this.uxActorsLabel = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.uxRatingBox = new System.Windows.Forms.ComboBox();
             this.uxLengthBox = new System.Windows.Forms.NumericUpDown();
+            this.uxDirectorBox = new System.Windows.Forms.ComboBox();
+            this.uxStudioBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.uxLengthBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,15 +119,6 @@
             this.uxDirectorLabel.Size = new System.Drawing.Size(63, 17);
             this.uxDirectorLabel.TabIndex = 32;
             this.uxDirectorLabel.Text = "Director*";
-            // 
-            // uxDirectorBox
-            // 
-            this.uxDirectorBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.uxDirectorBox.Location = new System.Drawing.Point(105, 68);
-            this.uxDirectorBox.Margin = new System.Windows.Forms.Padding(2);
-            this.uxDirectorBox.Name = "uxDirectorBox";
-            this.uxDirectorBox.Size = new System.Drawing.Size(156, 23);
-            this.uxDirectorBox.TabIndex = 31;
             // 
             // uxTitleLabel
             // 
@@ -201,15 +192,6 @@
             this.uxStudioLabel.Size = new System.Drawing.Size(53, 17);
             this.uxStudioLabel.TabIndex = 38;
             this.uxStudioLabel.Text = "Studio*";
-            // 
-            // uxStudioBox
-            // 
-            this.uxStudioBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.uxStudioBox.Location = new System.Drawing.Point(105, 167);
-            this.uxStudioBox.Margin = new System.Windows.Forms.Padding(2);
-            this.uxStudioBox.Name = "uxStudioBox";
-            this.uxStudioBox.Size = new System.Drawing.Size(156, 23);
-            this.uxStudioBox.TabIndex = 37;
             // 
             // uxApplyButton
             // 
@@ -290,12 +272,30 @@
             0,
             0});
             // 
+            // uxDirectorBox
+            // 
+            this.uxDirectorBox.FormattingEnabled = true;
+            this.uxDirectorBox.Location = new System.Drawing.Point(105, 71);
+            this.uxDirectorBox.Name = "uxDirectorBox";
+            this.uxDirectorBox.Size = new System.Drawing.Size(156, 21);
+            this.uxDirectorBox.TabIndex = 54;
+            // 
+            // uxStudioBox
+            // 
+            this.uxStudioBox.FormattingEnabled = true;
+            this.uxStudioBox.Location = new System.Drawing.Point(105, 168);
+            this.uxStudioBox.Name = "uxStudioBox";
+            this.uxStudioBox.Size = new System.Drawing.Size(156, 21);
+            this.uxStudioBox.TabIndex = 55;
+            // 
             // AddMovieForm
             // 
             this.AcceptButton = this.uxApplyButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 378);
+            this.Controls.Add(this.uxStudioBox);
+            this.Controls.Add(this.uxDirectorBox);
             this.Controls.Add(this.uxLengthBox);
             this.Controls.Add(this.uxRatingBox);
             this.Controls.Add(this.label2);
@@ -307,13 +307,11 @@
             this.Controls.Add(this.uxGenreLabel);
             this.Controls.Add(this.uxGenreBox);
             this.Controls.Add(this.uxStudioLabel);
-            this.Controls.Add(this.uxStudioBox);
             this.Controls.Add(this.uxEndDateLabel);
             this.Controls.Add(this.uxEndDateBox);
             this.Controls.Add(this.uxReleaseDateBox);
             this.Controls.Add(this.uxReleaseDateLabel);
             this.Controls.Add(this.uxDirectorLabel);
-            this.Controls.Add(this.uxDirectorBox);
             this.Controls.Add(this.uxTitleLabel);
             this.Controls.Add(this.uxTitleBox);
             this.Controls.Add(this.label1);
@@ -333,7 +331,6 @@
         private System.Windows.Forms.TextBox uxReleaseDateBox;
         private System.Windows.Forms.Label uxReleaseDateLabel;
         private System.Windows.Forms.Label uxDirectorLabel;
-        private System.Windows.Forms.TextBox uxDirectorBox;
         private System.Windows.Forms.Label uxTitleLabel;
         private System.Windows.Forms.TextBox uxTitleBox;
         private System.Windows.Forms.Label uxLengthLabel;
@@ -341,7 +338,6 @@
         private System.Windows.Forms.Label uxGenreLabel;
         private System.Windows.Forms.TextBox uxGenreBox;
         private System.Windows.Forms.Label uxStudioLabel;
-        private System.Windows.Forms.TextBox uxStudioBox;
         private System.Windows.Forms.Button uxApplyButton;
         private System.Windows.Forms.TextBox uxActorOneBox;
         private System.Windows.Forms.Label uxActorsLabel;
@@ -349,5 +345,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox uxRatingBox;
         private System.Windows.Forms.NumericUpDown uxLengthBox;
+        private System.Windows.Forms.ComboBox uxDirectorBox;
+        private System.Windows.Forms.ComboBox uxStudioBox;
     }
 }

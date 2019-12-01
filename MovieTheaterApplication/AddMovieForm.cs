@@ -15,6 +15,8 @@ namespace MovieTheaterApplication
         public AddMovieForm()
         {
             InitializeComponent();
+            uxDirectorBox.DataSource = Bridge.RetrieveDirectors();
+            uxStudioBox.DataSource = Bridge.RetrieveStudios();
         }
 
         private void uxApplyButton_Click(object sender, EventArgs e)
