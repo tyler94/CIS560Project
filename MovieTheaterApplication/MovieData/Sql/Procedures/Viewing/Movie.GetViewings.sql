@@ -7,7 +7,7 @@ CREATE PROCEDURE Movie.GetViewings
 	@CustomerCategoryName NVARCHAR(128)
 AS
 
-SELECT V.ViewingId, C.FullName, CC.CategoryName, M.MovieName, V.ViewedOn
+SELECT C.FullName AS CustomerName, CC.CategoryName AS CustomerCategory, M.MovieName AS MovieTitle, V.ViewedOn AS ShowDate
 FROM Movie.Viewing V
 INNER JOIN Movie.Movie M ON M.MovieId = V.MovieId
 INNER JOIN Movie.Customer C ON V.CustomerId = C.CustomerId

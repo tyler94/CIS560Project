@@ -105,6 +105,7 @@
             this.uxCustomerName.MinimumWidth = 6;
             this.uxCustomerName.Name = "uxCustomerName";
             this.uxCustomerName.Width = 125;
+            this.uxCustomerName.DataPropertyName = "CustomerName";
             // 
             // uxCustomerAge
             // 
@@ -112,6 +113,7 @@
             this.uxCustomerAge.MinimumWidth = 6;
             this.uxCustomerAge.Name = "uxCustomerAge";
             this.uxCustomerAge.Width = 125;
+            this.uxCustomerAge.DataPropertyName = "CustomerCategory";
             // 
             // uxMovieTitle
             // 
@@ -119,6 +121,7 @@
             this.uxMovieTitle.MinimumWidth = 6;
             this.uxMovieTitle.Name = "uxMovieTitle";
             this.uxMovieTitle.Width = 125;
+            this.uxMovieTitle.DataPropertyName = "MovieTitle";
             // 
             // uxShowDate
             // 
@@ -126,6 +129,7 @@
             this.uxShowDate.MinimumWidth = 6;
             this.uxShowDate.Name = "uxShowDate";
             this.uxShowDate.Width = 125;
+            this.uxShowDate.DataPropertyName = "ShowDate";
             // 
             // uxShowTime
             // 
