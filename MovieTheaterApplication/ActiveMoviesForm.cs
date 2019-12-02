@@ -20,7 +20,7 @@ namespace MovieTheaterApplication
         {
             InitializeComponent();
             AvailableMovies = true;
-            UnavailableMovies = true;
+            UnavailableMovies = false;
             uxSearchOptionsBox.SelectedIndex = 0;
 
             Bridge.RetrieveDirectors();
