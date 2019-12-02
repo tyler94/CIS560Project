@@ -183,15 +183,15 @@ namespace MovieTheaterApplication
                 + rating;
         }
 
-        public static string AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
+        public static string AddMovie(string MovieName, int DirectorId, int studioId, string date, string rating, int length)
         {
-            return "EXEC Movie.AddMovie "
-                + MovieName + ", "
-                + DirectorName + ", "
-                + ProductionCompanyName + ", "
-                + "'" + date + "'" + ", "
-                + rating + ", "
-                + length;
+            return "EXEC Movie.CreateMovie '"
+                + MovieName + "', "
+                + DirectorId + ", "
+                + studioId + ", "
+                + "'" + date + "'" + ", '"
+                + rating + "', "
+                + length + ", NULL";
         }
 
         public static string FetchDirector(int id)
@@ -204,14 +204,14 @@ namespace MovieTheaterApplication
             return "EXEC Movie.FetchProductionCompany " + id;
         }
 
-        public static string GetDirector(string Director)
+        public static string GetDirector(string director)
         {
-            return "EXEC Movie.GetDirectors '" + Director + "'";
+            return "EXEC Movie.GetDirectors '" + director + "'";
         }
 
-        public static string GetStudio(string Studio)
+        public static string GetStudio(string studio)
         {
-            return "EXEC Movie.GetProductionCompanies '" + Studio + "'";
+            return "EXEC Movie.GetProductionCompanies '" + studio + "'";
         }
 
         public static string RetrieveDirectors()

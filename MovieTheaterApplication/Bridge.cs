@@ -141,11 +141,11 @@ namespace MovieTheaterApplication
             MessageBox.Show("All procedures successfully run");
         }
 
-        public static bool AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
+        public static bool AddMovie(string MovieName, int directorId, int studioId, string date, string rating, int length)
         {
             try
             {
-                Call(SqlProcedures.AddMovie(MovieName, DirectorName, ProductionCompanyName, date, rating, length));
+                Call(SqlProcedures.AddMovie(MovieName, directorId, studioId, date, rating, length));
                 return true;
             }
             catch (Exception e)
@@ -387,6 +387,34 @@ namespace MovieTheaterApplication
                 genres.Add(temp.Rows[i][1].ToString());
             }
             return genres;
+        }
+
+        public static int GetDirector(string director)
+        {
+            string sql = SqlProcedures.GetDirector(director);
+            DataTable temp = Call(sql);
+            if (temp.Rows.Count > 0)
+            {
+                int id;
+                int.TryParse(temp.Rows[0][0].ToString(), out id);
+                return id;
+            }
+            else
+                return -1;
+        }
+
+        public static int GetStudio(string studio)
+        {
+            string sql = SqlProcedures.GetStudio(studio);
+            DataTable temp = Call(sql);
+            if (temp.Rows.Count > 0)
+            {
+                int id;
+                int.TryParse(temp.Rows[0][0].ToString(), out id);
+                return id;
+            }
+            else
+                return -1;
         }
     }
 }

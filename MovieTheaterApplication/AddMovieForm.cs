@@ -26,7 +26,9 @@ namespace MovieTheaterApplication
                 //AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
                 string movieName = uxTitleBox.Text;
                 string directorName = uxDirectorBox.Text;
+                int directorId = Bridge.GetDirector(directorName);
                 string studio = uxStudioBox.Text;
+                int studioid = Bridge.GetStudio(studio);
                 string date = uxReleaseDateBox.Text;
                 string rating = uxRatingBox.Text;
                 int length;
@@ -40,7 +42,7 @@ namespace MovieTheaterApplication
                     return;
                 }
 
-                if (Bridge.AddMovie(movieName, directorName, studio, date, rating, length))
+                if (Bridge.AddMovie(movieName, directorId, studioid, date, rating, length))
                 {
                     MessageBox.Show("Successfully added movie!");
                 }
