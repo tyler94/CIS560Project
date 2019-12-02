@@ -16,6 +16,7 @@ namespace MovieTheaterApplication
         public delegate void AuthenticateDelegate(string DataSource, string Database, string Username, string Password);
         public enum MovieSearchType { None, MovieTitle, MovieDirector, MovieGenre }
         public enum MoviesToShow { AllMovies, OnlyAvailable, OnlyUnavailable }
+        public enum ViewingSearchType { ExcludeDate, IncludeDate }
 
         private static SqlConnection connection;
         private static bool response = false;
@@ -299,6 +300,27 @@ namespace MovieTheaterApplication
                         }
                 }
             }
+
+            return null;
+        }
+
+        public static DataTable SearchForViewing(ViewingSearchType type, string moviename, string customername, string categoryname, DateTime viewedon)
+        {
+            string sql;
+                switch (type)
+                {
+                    case ViewingSearchType.ExcludeDate:
+                        {
+                            sql = SqlProcedures.GetViewings(moviename, customername, categoryname);
+                            return Call(sql);
+                        }
+                    case ViewingSearchType.IncludeDate:
+                        {
+                            sql = SqlProcedures.GetViewingsOnDate(moviename, customername, categoryname, viewedon);
+                            return Call(sql);
+                        }
+                }
+            
 
             return null;
         }

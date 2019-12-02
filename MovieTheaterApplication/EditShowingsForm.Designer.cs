@@ -202,10 +202,8 @@
             // 
             this.uxSearchOptionsBox.FormattingEnabled = true;
             this.uxSearchOptionsBox.Items.AddRange(new object[] {
-            "Customer Name",
-            "Customer Type",
-            "Viewing Date/Time",
-            "Movie Title"});
+            "Exclude Date",
+            "Include Date"});
             this.uxSearchOptionsBox.Location = new System.Drawing.Point(573, 14);
             this.uxSearchOptionsBox.Name = "uxSearchOptionsBox";
             this.uxSearchOptionsBox.Size = new System.Drawing.Size(121, 24);
@@ -254,9 +252,10 @@
             this.uxCustomerTypeBox.FormattingEnabled = true;
             this.uxCustomerTypeBox.Items.AddRange(new object[] {
             "Child",
-            "Teenager",
+            "Student",
             "Adult",
-            "Senior Citizen"});
+            "Senior",
+            "Military"});
             this.uxCustomerTypeBox.Location = new System.Drawing.Point(170, 169);
             this.uxCustomerTypeBox.Name = "uxCustomerTypeBox";
             this.uxCustomerTypeBox.Size = new System.Drawing.Size(121, 24);

@@ -1,5 +1,5 @@
 Param(
-   [string] $Server = "(localdb)\560Project",
+   [string] $Server = "(localdb)\tyler94",
    [string] $Database = "master"
 )
 
@@ -110,6 +110,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CI
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.CreateViewing.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.FetchViewing.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.GetViewings.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.GetViewingsOnDate.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.RetrieveViewings.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Viewing\Movie.SaveViewing.sql"
 

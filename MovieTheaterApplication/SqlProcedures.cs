@@ -98,6 +98,17 @@ namespace MovieTheaterApplication
             return "EXEC Movie.GetMoviesByTitleDisplay \"" + input + "\"";
         }
 
+        public static string GetViewings(string moviename, string customername, string categoryname)
+        {
+            return "EXEC Movie.GetViewings \"" + moviename + "\", " + customername + "\", "+ categoryname + "\"";
+        }
+
+        public static string GetViewingsOnDate(string moviename, string customername, string categoryname, DateTime viewedon)
+        {
+
+            return "EXEC Movie.GetViewingsOnDate \"" + moviename + "\", " + customername + "\", " + categoryname + "\", "+ viewedon + "\"";
+        }
+
         public static string GetFilteredMoviesByDirectorDisplay(string FullName, bool IsRemoved)
         {
             int num;
