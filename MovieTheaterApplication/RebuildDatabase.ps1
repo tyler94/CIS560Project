@@ -126,6 +126,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CI
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetFilteredMoviesByGenre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetFilteredMoviesByTitle.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMovies.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMoviesForViewings.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMoviesByDirector.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMoviesByGenre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "Desktop\CIS560\MovieDB\MovieTheaterApplication\MovieData\Sql\Procedures\Movie\Movie.GetMoviesByTitle.sql"

@@ -156,6 +156,20 @@ namespace MovieTheaterApplication
             }
         }
 
+        public static bool AddViewing(int movieid, int customerid, DateTime viewedon)
+        {
+            try
+            {
+                Call(SqlProcedures.CreateViewing(movieid, customerid, viewedon));
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
         public static string FetchDirector(int id)
         {
             string sql = SqlProcedures.FetchDirector(id);
@@ -323,6 +337,50 @@ namespace MovieTheaterApplication
             
 
             return null;
+        }
+
+        public static int SearchForCustomer(string customername, string categoryname)
+        {
+            string sql;
+            sql = SqlProcedures.GetCustomers(customername, categoryname);
+            DataTable temp = Call(sql);
+            if (temp.Rows.Count > 0)
+            {
+                int id;
+                int.TryParse(temp.Rows[0][0].ToString(), out id);
+                return id;
+            }
+            else
+                return -1;
+        }
+
+        public static int GetMovieForViewing(string input)
+        {
+
+            string sql = SqlProcedures.GetMoviesForViewings(input);
+            DataTable temp = Call(sql);
+            if (temp.Rows.Count > 0)
+            {
+                int id;
+                int.TryParse(temp.Rows[0][0].ToString(), out id);
+                return id;
+            }
+            else
+                return -1;
+        }
+
+        public static int GetViewingId(string moviename, string customername, string categoryname, DateTime viewedon)
+        {
+            string sql = SqlProcedures.GetViewingsOnDate(moviename, customername, categoryname, viewedon);
+            DataTable temp = Call(sql);
+            if (temp.Rows.Count > 0)
+            {
+                int id;
+                int.TryParse(temp.Rows[0][0].ToString(), out id);
+                return id;
+            }
+            else
+                return -1;
         }
 
         public static void Run(string sql, string file)

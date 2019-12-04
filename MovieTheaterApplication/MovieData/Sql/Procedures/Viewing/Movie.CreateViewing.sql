@@ -2,14 +2,11 @@ IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.CreateV
   DROP PROCEDURE Movie.CreateViewing
 GO
 CREATE PROCEDURE Movie.CreateViewing
-   @CustomerId INT,
    @MovieId INT,
-   @ViewedOn DATETIME,
-   @ViewingId INT OUTPUT
+   @CustomerId INT,
+   @ViewedOn DATETIME
 AS
 
 INSERT Movie.Viewing(CustomerId, MovieId, ViewedOn)
 VALUES(@CustomerId, @MovieId, @ViewedOn);
-
-SET @ViewingId = SCOPE_IDENTITY();
 GO

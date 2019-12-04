@@ -36,7 +36,7 @@
             this.uxCustomerAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxMovieTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxShowDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uxShowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.uxShowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxTitleSearchLabel = new System.Windows.Forms.Label();
             this.uxShowDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.uxShowDateLabel = new System.Windows.Forms.Label();
@@ -90,8 +90,7 @@
             this.uxCustomerName,
             this.uxCustomerAge,
             this.uxMovieTitle,
-            this.uxShowDate,
-            this.uxShowTime});
+            this.uxShowDate});
             this.uxMovieEntries.Location = new System.Drawing.Point(16, 290);
             this.uxMovieEntries.Name = "uxMovieEntries";
             this.uxMovieEntries.RowHeadersWidth = 51;
@@ -133,10 +132,10 @@
             // 
             // uxShowTime
             // 
-            this.uxShowTime.HeaderText = "Show Time";
-            this.uxShowTime.MinimumWidth = 6;
-            this.uxShowTime.Name = "uxShowTime";
-            this.uxShowTime.Width = 125;
+            //this.uxShowTime.HeaderText = "Show Time";
+            //this.uxShowTime.MinimumWidth = 6;
+            //this.uxShowTime.Name = "uxShowTime";
+            //this.uxShowTime.Width = 125;
             // 
             // uxTitleSearchLabel
             // 
@@ -333,7 +332,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uxCustomerAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn uxMovieTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn uxShowDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uxShowTime;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn uxShowTime;
         private System.Windows.Forms.ComboBox uxSearchOptionsBox;
         private System.Windows.Forms.Label uxSearchOptionsLabel;
         private System.Windows.Forms.Label uxCustomerNameLabel;

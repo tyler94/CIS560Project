@@ -13,6 +13,11 @@ namespace MovieTheaterApplication
             return "EXEC Movie.GetMovies \"" + MovieName + "\"";
         }
 
+        public static string GetMoviesForViewings(string MovieName)
+        {
+            return "EXEC Movie.GetMovies \"" + MovieName + "\"";
+        }
+
         public static string RetrieveMovies()
         {
             return "EXEC Movie.RetrieveMovies";
@@ -115,6 +120,13 @@ namespace MovieTheaterApplication
                 + viewedon + "'";
         }
 
+        public static string GetCustomers(string customername, string categoryname)
+        {
+            return "EXEC Movie.GetCustomers '"
+                + customername + "', '"
+                + categoryname + "'";
+        }
+
         public static string GetFilteredMoviesByDirectorDisplay(string FullName, bool IsRemoved)
         {
             int num;
@@ -209,6 +221,14 @@ namespace MovieTheaterApplication
                 + "'" + date + "'" + ", '"
                 + rating + "', "
                 + length + ", NULL";
+        }
+
+        public static string CreateViewing(int movieid, int customerid,  DateTime viewedon)
+        {
+            return "EXEC Movie.CreateViewing '"
+                + movieid + "', '"
+                + customerid + "', '"
+                + viewedon + "'";
         }
 
         public static string FetchDirector(int id)
