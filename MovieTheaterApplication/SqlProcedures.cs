@@ -117,7 +117,7 @@ namespace MovieTheaterApplication
                 + moviename + "', '"
                 + customername + "', '"
                 + categoryname + "', '"
-                + viewedon + "'";
+                + viewedon.ToString("yyyy-MM-dd HH:mm:ss.fff") + "'";
         }
 
         public static string GetCustomers(string customername, string categoryname)

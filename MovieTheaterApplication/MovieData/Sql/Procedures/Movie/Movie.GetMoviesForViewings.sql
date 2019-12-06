@@ -1,7 +1,7 @@
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMovies') AND type in (N'P', N'PC'))
-  DROP PROCEDURE Movie.GetMovies
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMoviesForViewings') AND type in (N'P', N'PC'))
+  DROP PROCEDURE Movie.GetMoviesForViewings
 GO
-CREATE PROCEDURE Movie.GetMovies
+CREATE PROCEDURE Movie.GetMoviesForViewings
 	@MovieName NVARCHAR(128)
 AS
 

@@ -110,6 +110,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.FetchViewing.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.GetViewings.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.GetViewingsOnDate.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.GetViewingsOnDateWithId.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.RetrieveViewings.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MovieData\Sql\Procedures\Viewing\Movie.SaveViewing.sql"
 

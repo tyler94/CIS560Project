@@ -97,6 +97,7 @@
             this.uxMovieEntries.RowTemplate.Height = 24;
             this.uxMovieEntries.Size = new System.Drawing.Size(685, 205);
             this.uxMovieEntries.TabIndex = 9;
+            this.uxMovieEntries.SelectionChanged += new System.EventHandler(this.uxMovieEntries_SelectionChanged);
             // 
             // uxCustomerName
             // 
