@@ -1,3 +1,4 @@
+/*get movies by exact name but only the fields needed for display*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMoviesDisplay') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetMoviesDisplay
 GO

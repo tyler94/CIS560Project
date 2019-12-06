@@ -1,3 +1,4 @@
+/*retrieve all directors*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.RetrieveDirectors') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.RetrieveDirectors
 GO

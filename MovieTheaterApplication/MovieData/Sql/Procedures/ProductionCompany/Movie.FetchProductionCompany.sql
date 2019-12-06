@@ -1,3 +1,4 @@
+/*fetches a production company with the provided id*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.FetchProductionCompany') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.FetchProductionCompany
 GO

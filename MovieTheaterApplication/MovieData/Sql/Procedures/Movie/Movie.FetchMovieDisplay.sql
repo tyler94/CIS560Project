@@ -1,3 +1,4 @@
+/*fetch movie by id but only return fields needed for the data grid view*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.FetchMovieDisplay') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.FetchMovieDisplay
 GO

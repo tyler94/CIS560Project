@@ -1,3 +1,4 @@
+/*get movies by director but only the fields needed for display*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMoviesByDirectorDisplay') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetMoviesByDirectorDisplay
 GO

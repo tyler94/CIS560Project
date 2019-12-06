@@ -1,3 +1,4 @@
+/*Search for a viewing with a specified date and time*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetViewingsOnDate') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetViewingsOnDate
 GO
@@ -5,7 +6,7 @@ CREATE PROCEDURE Movie.GetViewingsOnDate
 	@MovieName NVARCHAR(128),
 	@CustomerName NVARCHAR(128),
 	@CustomerCategoryName NVARCHAR(128),
-	@ViewedOn DATE
+	@ViewedOn DATETIME
 AS
 
 SELECT C.FullName AS CustomerName, CC.CategoryName AS CustomerCategory, M.MovieName AS MovieTitle, V.ViewedOn AS ShowDate

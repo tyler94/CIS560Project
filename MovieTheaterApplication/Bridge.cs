@@ -170,6 +170,20 @@ namespace MovieTheaterApplication
             }
         }
 
+        public static bool ModifyViewing(int viewingid, int movieid, int customerid, DateTime viewedon)
+        {
+            try
+            {
+                Call(SqlProcedures.ModifyViewing(viewingid, movieid, customerid, viewedon));
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
         public static string FetchDirector(int id)
         {
             string sql = SqlProcedures.FetchDirector(id);
@@ -371,7 +385,7 @@ namespace MovieTheaterApplication
 
         public static int GetViewingId(string moviename, string customername, string categoryname, DateTime viewedon)
         {
-            string sql = SqlProcedures.GetViewingsOnDate(moviename, customername, categoryname, viewedon);
+            string sql = SqlProcedures.GetViewingsOnDateWithId(moviename, customername, categoryname, viewedon);
             DataTable temp = Call(sql);
             if (temp.Rows.Count > 0)
             {

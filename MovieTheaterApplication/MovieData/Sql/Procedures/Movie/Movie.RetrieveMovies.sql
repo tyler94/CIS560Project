@@ -1,3 +1,4 @@
+/*retrieve all movies*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.RetrieveMovies') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.RetrieveMovies
 GO

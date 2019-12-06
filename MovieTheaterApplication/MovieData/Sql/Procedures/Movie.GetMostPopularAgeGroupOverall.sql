@@ -1,3 +1,4 @@
+/*get customer type that comes to the movies most often*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMostPopularAgeGroupOverall') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetMostPopularAgeGroupOverall
 GO

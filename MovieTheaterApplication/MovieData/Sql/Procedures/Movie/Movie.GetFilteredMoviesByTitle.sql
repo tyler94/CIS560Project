@@ -1,3 +1,4 @@
+/*get movies by title, includes filter for whether or not a movie has been removed*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetFilteredMoviesByTitle') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetFilteredMoviesByTitle
 GO
