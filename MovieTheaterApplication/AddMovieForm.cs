@@ -98,9 +98,5 @@ namespace MovieTheaterApplication
             uxToolTip.Show("month-day-year", uxReleaseDateBox);
         }
 
-        private void uxEndDateBox_MouseHover(object sender, EventArgs e)
-        {
-            uxToolTip.Show("month-day-year", uxEndDateBox);
-        }
     }
 }
