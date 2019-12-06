@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This class reads the config file to get the default server, database, username, and password (if the user chooses to use them).
+    /// </summary>
     public static class Config
     {
         public static string Server;

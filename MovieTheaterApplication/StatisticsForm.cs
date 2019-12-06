@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This form is for getting pre-coded statistics
+    /// </summary>
     public partial class StatisticsForm : Form
     {
         public StatisticsForm()
@@ -17,6 +20,7 @@ namespace MovieTheaterApplication
             InitializeComponent();
         }
 
+        // When the user selects a new statistic, change which boxes are enabled/disabled
         private void uxStatisticTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             uxDateEntryLabel.Enabled = false;
@@ -82,6 +86,7 @@ namespace MovieTheaterApplication
             }
         }
 
+        // When the user clicks run, then send the code to the database and show the response
         private void uxRun_Click(object sender, EventArgs e)
         {
             switch (uxStatisticTypes.SelectedIndex)

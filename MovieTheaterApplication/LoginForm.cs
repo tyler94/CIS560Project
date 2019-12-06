@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This form simply takes login information from the user and gets the default values from the config file
+    /// </summary>
     public partial class LoginForm : Form
     {
         Bridge.AuthenticateDelegate authenticate;

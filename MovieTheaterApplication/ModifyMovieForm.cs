@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This form is to modify movies
+    /// </summary>
     public partial class ModifyMovieForm : Form
     {
         private int selectedMovieId = 0;
         public ModifyMovieForm()
         {
+            // Initial setup code
             InitializeComponent();
             uxDirectorBox.DataSource = Bridge.RetrieveDirectors();
             uxStudioBox.DataSource = Bridge.RetrieveStudios();
         }
 
+        // When the user attempts to search for a movie
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             Bridge.MoviesToShow toShow = Bridge.MoviesToShow.AllMovies;
@@ -27,6 +32,7 @@ namespace MovieTheaterApplication
             uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, toShow, uxMovieSearchBox.Text);
         }
 
+        // Whenever the user changes their selection in the datagridview, adjust the form to be more user friendly and change all boxes based on the selection
         private void uxMovieEntries_SelectionChanged(object sender, EventArgs e)
         {
             if (uxMovieEntries.SelectedRows == null)
@@ -55,6 +61,7 @@ namespace MovieTheaterApplication
             uxRatingBox.Text = selected.Cells[7].Value.ToString();
         }
 
+        // When the user clicks submit, attempt to edit the movie
         private void uxSubmit_Click(object sender, EventArgs e)
         {
             if (!checkBoxes())
@@ -69,6 +76,7 @@ namespace MovieTheaterApplication
             }
         }
 
+        // Check to make sure everything has been typed in or alert the user
         private bool checkBoxes()
         {
             if (uxTitleBox.Text == "")

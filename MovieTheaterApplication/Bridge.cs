@@ -557,6 +557,13 @@ namespace MovieTheaterApplication
         {
             string sql = SqlProcedures.GetDirector(director);
             DataTable temp = Call(sql);
+            if(temp.Rows.Count == 0)
+            {
+                sql = SqlProcedures.CreateDirector(director);
+                Run(sql, "Create Director");
+                sql = SqlProcedures.GetDirector(director);
+                temp = Call(sql);
+            }
             if (temp.Rows.Count > 0)
             {
                 int id;
@@ -572,7 +579,14 @@ namespace MovieTheaterApplication
         {
             string sql = SqlProcedures.GetStudio(studio);
             DataTable temp = Call(sql);
-            if (temp.Rows.Count > 0)
+            if (temp.Rows.Count == 0)
+            {
+                sql = SqlProcedures.CreateStudio(studio);
+                Run(sql, "Create Studio");
+                sql = SqlProcedures.GetStudio(studio);
+                temp = Call(sql);
+            }
+            if(temp.Rows.Count > 0)
             {
                 int id;
                 int.TryParse(temp.Rows[0][0].ToString(), out id);

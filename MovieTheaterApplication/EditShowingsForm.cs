@@ -11,13 +11,18 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This form allows the user to edit viewings
+    /// </summary>
     public partial class EditShowingsForm : Form
     {
+        // Global variable
         int activeViewingId = -1;
+
         public EditShowingsForm()
         {
+            // Initial code
             InitializeComponent();
-            //uxExecuteButton.Enabled = false;
             checkBoxes();
             uxEditTypesBox.SelectedIndex = 2;
         }
@@ -25,6 +30,7 @@ namespace MovieTheaterApplication
         //modify or create a viewing 
         private void uxExecuteButton_Click(object sender, EventArgs e)
         {
+            // When the user clicks execute
             DateTime viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
             if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
             {
@@ -33,7 +39,7 @@ namespace MovieTheaterApplication
 
                 viewedOn += span;
             }
-
+            
             if (CheckEmptyFields())
             {
                 int viewingCheck = Bridge.GetViewingId(uxTitleSearchBox.Text, uxCustomerNameBox.Text, uxCustomerTypeBox.Text, viewedOn);
@@ -187,25 +193,6 @@ namespace MovieTheaterApplication
             }
 
             uxMovieEntries.DataSource = Bridge.SearchForViewing(includeDate, movieTitle, customerName, customerType, viewedOn);
-
-            /*
-            switch (uxSearchOptionsBox.SelectedIndex)
-            {
-                // None
-                case 0:
-                    {
-                        uxMovieEntries.DataSource = Bridge.SearchForViewing(Bridge.ViewingSearchType.ExcludeDate,  uxTitleSearchBox.Text, uxCustomerNameBox.Text, uxCustomerTypeBox.Text, viewedOn);
-                        break;
-                    }
-                // Movie Title
-                case 1:
-                    {
-                        uxMovieEntries.DataSource = Bridge.SearchForViewing(Bridge.ViewingSearchType.IncludeDate, uxTitleSearchBox.Text, uxCustomerNameBox.Text, uxCustomerTypeBox.Text, viewedOn);
-                        break;
-                    }
-            }
-            uxExecuteButton.Enabled = true;
-            */
         }
 
         //Populate the form and get/set the active viewingid based on the selected row
@@ -293,6 +280,7 @@ namespace MovieTheaterApplication
             checkBoxes();
         }
 
+        // Check all of the boxes to determine what should be enabled/disabled
         private void checkBoxes()
         {
             if (uxIncludeMovieTitle.Checked)

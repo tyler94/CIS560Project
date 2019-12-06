@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This class simply contains methods for getting the SQL procedures to add simplicity and make changes easier to manage.
+    /// </summary>
     public static class SqlProcedures
     {
         public static string GetMovies(string MovieName)
@@ -294,6 +297,16 @@ namespace MovieTheaterApplication
         public static string RetrieveGenres()
         {
             return "EXEC Movie.RetrieveGenres";
+        }
+
+        public static string CreateDirector(string director)
+        {
+            return "EXEC Movie.CreateDirector '" + director + "', NULL, NULL, NULL";
+        }
+
+        public static string CreateStudio(string studio)
+        {
+            return "EXEC Movie.CreateProductionCompany '" + studio + "', NULL, NULL, NULL";
         }
     }
 }

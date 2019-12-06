@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace MovieTheaterApplication
 {
+    /// <summary>
+    /// This is the main form for the program. Simply opens other forms when the buttons are clicked.
+    /// </summary>
     public partial class TheaterNavigationForm : Form
     {
         public TheaterNavigationForm()
