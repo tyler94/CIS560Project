@@ -6,5 +6,6 @@ CREATE PROCEDURE Movie.RetrieveProductionCompanies
 AS
 
 SELECT P.CompanyId, P.CompanyName, P.DateEstablished, P.Location
-FROM Movie.ProductionCompany P;
+FROM Movie.ProductionCompany P
+ORDER BY P.CompanyName ASC;
 GO
