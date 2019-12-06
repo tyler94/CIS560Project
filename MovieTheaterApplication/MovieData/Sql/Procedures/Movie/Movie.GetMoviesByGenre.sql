@@ -1,3 +1,4 @@
+/*get movies by genre*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMoviesByGenre') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetMoviesByGenre
 GO

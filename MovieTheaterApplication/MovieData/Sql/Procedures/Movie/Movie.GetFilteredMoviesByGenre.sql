@@ -1,3 +1,4 @@
+/*get movies by genre, includes filter for whether or not a movie has been removed*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetFilteredMoviesByGenre') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetFilteredMoviesByGenre
 GO

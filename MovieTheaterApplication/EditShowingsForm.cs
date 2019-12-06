@@ -20,13 +20,13 @@ namespace MovieTheaterApplication
             uxExecuteButton.Enabled = false;
         }
 
+        //modify or create a viewing 
         private void uxExecuteButton_Click(object sender, EventArgs e)
         {
             DateTime viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
             if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
             {
-                DateTime dateTime = DateTime.ParseExact(uxShowTimesBox.Text,
-                                    "h:mm tt", CultureInfo.InvariantCulture);
+                DateTime dateTime = Convert.ToDateTime(uxShowTimesBox.Text);
                 TimeSpan span = dateTime.TimeOfDay;
 
                 viewedOn += span;
@@ -39,7 +39,7 @@ namespace MovieTheaterApplication
                 int customerCheck = Bridge.SearchForCustomer(uxCustomerNameBox.Text, uxCustomerTypeBox.Text);
                 if (viewingCheck != -1)
                 {
-                    MessageBox.Show("A viewing with the entered data already exists! If you meant to modify an existing viewing make sure to select the modify option in the edit type field at the top of the page");
+                    MessageBox.Show("A viewing with the entered data already exists!");
                 }
                 else if (movieCheck == -1)
                 {
@@ -60,6 +60,7 @@ namespace MovieTheaterApplication
                                 if (Bridge.AddViewing(movieCheck, customerCheck, viewedOn))
                                 {
                                     MessageBox.Show("Successfully added viewing!");
+                                    uxSearchButton.PerformClick();
                                 }
                                 else
                                 {
@@ -71,14 +72,23 @@ namespace MovieTheaterApplication
                         // Modify Movie
                         case 1:
                             {
-                                if (Bridge.AddViewing(movieCheck, customerCheck, viewedOn))
+                                if(activeViewingId == -1)
                                 {
-                                    MessageBox.Show("Successfully added viewing!");
+                                    MessageBox.Show("No viewing selected! You must select a viewing in order to modify it!");
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Failed to add viewing! If you meant to modify an existing viewing make sure to select the modify option in the edit type field at the top of the page");
+                                    if (Bridge.ModifyViewing(activeViewingId, movieCheck, customerCheck, viewedOn))
+                                    {
+                                        MessageBox.Show("Successfully modified viewing!");
+                                        uxSearchButton.PerformClick();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Failed to modify viewing!");
+                                    }
                                 }
+                                
 
                                 break;
                             }
@@ -92,13 +102,13 @@ namespace MovieTheaterApplication
 
         }
 
+        //Uses fields on form to search for existing showings, the date may be included or excluded from the search
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             DateTime viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
             if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
             {
-                DateTime dateTime = DateTime.ParseExact(uxShowTimesBox.Text,
-                                    "h:mm tt", CultureInfo.InvariantCulture);
+                DateTime dateTime = Convert.ToDateTime(uxShowTimesBox.Text);
                 TimeSpan span = dateTime.TimeOfDay;
 
                 viewedOn += span;
@@ -123,6 +133,7 @@ namespace MovieTheaterApplication
             uxExecuteButton.Enabled = true;
         }
 
+        //Populate the form and get/set the active viewingid based on the selected row
         private void uxMovieEntries_SelectionChanged(object sender, EventArgs e)
         {
             if (uxMovieEntries.SelectedRows == null)
@@ -142,19 +153,12 @@ namespace MovieTheaterApplication
             DateTime viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
             if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
             {
-                DateTime dateTime = DateTime.ParseExact(uxShowTimesBox.Text,
-                                    "h:mm:ss tt", CultureInfo.InvariantCulture);
+                DateTime dateTime = Convert.ToDateTime(uxShowTimesBox.Text);
                 TimeSpan span = dateTime.TimeOfDay;
 
                 viewedOn += span;
             }
-            string dtConverted = viewedOn.ToString("yyyy-MM-dd HH:mm:ss.fff");
             activeViewingId = Bridge.GetViewingId(uxTitleSearchBox.Text, uxCustomerNameBox.Text, uxCustomerTypeBox.Text, viewedOn);
-            int viewingcheck = Bridge.GetViewingId(uxTitleSearchBox.Text, uxCustomerNameBox.Text, uxCustomerTypeBox.Text, viewedOn);
-
-            //int directorId;
-            //int.TryParse(selected.Cells[2].Value.ToString(), out directorId);
-            //uxCustomerNameBox.Text = Bridge.FetchDirector(directorId);
 
         }
 

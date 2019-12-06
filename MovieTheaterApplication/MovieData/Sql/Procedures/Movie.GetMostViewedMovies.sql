@@ -1,3 +1,4 @@
+/*get most pupular movies*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetMostViewedMovies') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetMostViewedMovies
 GO

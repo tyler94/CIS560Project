@@ -1,3 +1,4 @@
+/*get highest grossing movies*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetTopGrossingMovies') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetTopGrossingMovies
 GO

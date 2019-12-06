@@ -1,3 +1,4 @@
+/*get customer by name and category*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetCustomers') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetCustomers
 GO

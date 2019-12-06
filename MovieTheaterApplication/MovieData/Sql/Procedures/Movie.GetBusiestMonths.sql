@@ -1,3 +1,4 @@
+/*get months with the highest number of movie goers within a given year*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetBusiestMonths') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetBusiestMonths
 GO

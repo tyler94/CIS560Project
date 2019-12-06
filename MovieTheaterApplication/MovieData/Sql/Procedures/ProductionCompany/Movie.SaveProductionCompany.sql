@@ -1,3 +1,4 @@
+/*Update an existing production company (unused)*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.SaveProductionCompany') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.SaveProductionCompany
 GO

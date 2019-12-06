@@ -1,3 +1,4 @@
+/*get movies with the highest number of customers for a given month*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.GetHighestCustomerCountByMonth') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.GetHighestCustomerCountByMonth
 GO

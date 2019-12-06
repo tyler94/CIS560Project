@@ -117,7 +117,16 @@ namespace MovieTheaterApplication
                 + moviename + "', '"
                 + customername + "', '"
                 + categoryname + "', '"
-                + viewedon.ToString("yyyy-MM-dd HH:mm:ss.fff") + "'";
+                + viewedon + "'";
+        }
+
+        public static string GetViewingsOnDateWithId(string moviename, string customername, string categoryname, DateTime viewedon)
+        {
+            return "EXEC Movie.GetViewingsOnDateWithId '"
+                + moviename + "', '"
+                + customername + "', '"
+                + categoryname + "', '"
+                + viewedon + "'";
         }
 
         public static string GetCustomers(string customername, string categoryname)
@@ -228,6 +237,15 @@ namespace MovieTheaterApplication
             return "EXEC Movie.CreateViewing '"
                 + movieid + "', '"
                 + customerid + "', '"
+                + viewedon + "'";
+        }
+
+        public static string ModifyViewing(int viewingid, int movieid, int customerid, DateTime viewedon)
+        {
+            return "EXEC Movie.SaveViewing '"
+                + viewingid + "', '"
+                + customerid + "', '"
+                + movieid + "', '"
                 + viewedon + "'";
         }
 

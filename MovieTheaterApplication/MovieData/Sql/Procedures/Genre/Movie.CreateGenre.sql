@@ -1,3 +1,4 @@
+/*Create new movie genre and add it to an existing movie*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.CreateGenre') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.CreateGenre
 GO

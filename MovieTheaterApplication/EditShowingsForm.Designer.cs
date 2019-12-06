@@ -58,8 +58,7 @@
             this.uxEditTypesBox.FormattingEnabled = true;
             this.uxEditTypesBox.Items.AddRange(new object[] {
             "Add Viewing",
-            "Modify Viewing",
-            "Delete Viewing"});
+            "Modify Viewing"});
             this.uxEditTypesBox.Location = new System.Drawing.Point(110, 12);
             this.uxEditTypesBox.Name = "uxEditTypesBox";
             this.uxEditTypesBox.Size = new System.Drawing.Size(121, 24);

@@ -1,3 +1,4 @@
+/*update an existing movie*/
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Movie.SaveMovie') AND type in (N'P', N'PC'))
   DROP PROCEDURE Movie.SaveMovie
 GO
