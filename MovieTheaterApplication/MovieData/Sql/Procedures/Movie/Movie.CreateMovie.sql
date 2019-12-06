@@ -8,11 +8,12 @@ CREATE PROCEDURE Movie.CreateMovie
    @ProductionCompanyId INT,
    @ReleaseDate DATE,
    @FilmRating NVARCHAR(128),
+   @MovieLength INT,
    @MovieId INT OUTPUT
 AS
 
-INSERT Movie.Movie(MovieName, DirectorId, ProductionCompanyId, ReleaseDate, FilmRating)
-VALUES(@MovieName, @DirectorId, @ProductionCompanyId, @ReleaseDate, @FilmRating)
+INSERT Movie.Movie(MovieName, DirectorId, ProductionCompanyId, ReleaseDate, FilmRating, [Length])
+VALUES(@MovieName, @DirectorId, @ProductionCompanyId, @ReleaseDate, @FilmRating, @MovieLength)
 
 SET @MovieId = SCOPE_IDENTITY();
 GO

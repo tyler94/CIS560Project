@@ -240,6 +240,18 @@ namespace MovieTheaterApplication
                 + viewedon + "'";
         }
 
+        public static string ModifyMovie(int MovieId, string MovieName, int DirectorId, string date, int StudioId, int Length, string rating)
+        {
+            return "EXEC Movie.SaveMovie " 
+                + MovieId + ", " 
+                + "'" + MovieName + "'" + ", " 
+                + DirectorId + ", "
+                + "'" + date + "'" + ", " 
+                + StudioId + ", "
+                + Length + ", "
+                + "'" + rating + "'";
+        }
+
         public static string ModifyViewing(int viewingid, int movieid, int customerid, DateTime viewedon)
         {
             return "EXEC Movie.SaveViewing '"

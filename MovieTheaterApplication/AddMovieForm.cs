@@ -14,6 +14,7 @@ namespace MovieTheaterApplication
     {
         public AddMovieForm()
         {
+            // Intial code for this form
             InitializeComponent();
             uxDirectorBox.DataSource = Bridge.RetrieveDirectors();
             uxStudioBox.DataSource = Bridge.RetrieveStudios();
@@ -21,6 +22,7 @@ namespace MovieTheaterApplication
 
         private void uxApplyButton_Click(object sender, EventArgs e)
         {
+            // Makes sure all necessary boxes are filled in
             if(CheckEmptyFields())
             {
                 //AddMovie(string MovieName, string DirectorName, string ProductionCompanyName, string date, string rating, int length)
@@ -34,6 +36,7 @@ namespace MovieTheaterApplication
                 int length;
                 try
                 {
+                    // Check the Length box to make sure it's a number
                     int.TryParse(uxLengthBox.Text, out length);
                 }
                 catch
@@ -42,6 +45,7 @@ namespace MovieTheaterApplication
                     return;
                 }
 
+                // Actually add the movie
                 if (Bridge.AddMovie(movieName, directorId, studioid, date, rating, length))
                 {
                     MessageBox.Show("Successfully added movie!");

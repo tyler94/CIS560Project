@@ -12,12 +12,12 @@ namespace MovieTheaterApplication
 {
     public partial class ModifyMovieForm : Form
     {
+        private int selectedMovieId = 0;
         public ModifyMovieForm()
         {
             InitializeComponent();
             uxDirectorBox.DataSource = Bridge.RetrieveDirectors();
             uxStudioBox.DataSource = Bridge.RetrieveStudios();
-            uxGenreBox.DataSource = Bridge.RetrieveGenres();
         }
 
         private void uxSearchButton_Click(object sender, EventArgs e)
@@ -25,8 +25,6 @@ namespace MovieTheaterApplication
             Bridge.MoviesToShow toShow = Bridge.MoviesToShow.AllMovies;
 
             uxMovieEntries.DataSource = Bridge.SearchForMovie(Bridge.MovieSearchType.MovieTitle, toShow, uxMovieSearchBox.Text);
-
-
         }
 
         private void uxMovieEntries_SelectionChanged(object sender, EventArgs e)
@@ -36,6 +34,7 @@ namespace MovieTheaterApplication
             if (uxMovieEntries.SelectedRows.Count == 0)
                 return;
             DataGridViewRow selected = uxMovieEntries.SelectedRows[0];
+            int.TryParse(selected.Cells[0].Value.ToString(), out selectedMovieId);
             uxTitleBox.Text = selected.Cells[1].Value.ToString();
 
             int directorId;
@@ -58,7 +57,46 @@ namespace MovieTheaterApplication
 
         private void uxSubmit_Click(object sender, EventArgs e)
         {
+            if (!checkBoxes())
+                return;
+            if(Bridge.ModifyMovie(selectedMovieId, uxTitleBox.Text, uxDirectorBox.Text, uxReleaseDateBox.Text, uxStudioBox.Text, (int) uxLengthBox.Value, uxRatingBox.Text))
+            {
+                MessageBox.Show("Successfully edited movie!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to edit movie!");
+            }
+        }
 
+        private bool checkBoxes()
+        {
+            if (uxTitleBox.Text == "")
+            {
+                MessageBox.Show("Title must be included!");
+                return false;
+            }
+            if (uxDirectorBox.Text == "")
+            {
+                MessageBox.Show("Director must be included!");
+                return false;
+            }
+            if (uxReleaseDateBox.Text == "")
+            {
+                MessageBox.Show("Date must be included!");
+                return false;
+            }
+            if (uxStudioBox.Text == "")
+            {
+                MessageBox.Show("Studio must be included!");
+                return false;
+            }
+            if (uxRatingBox.Text == "")
+            {
+                MessageBox.Show("Rating must be selected!");
+                return false;
+            }
+            return true;
         }
     }
 }

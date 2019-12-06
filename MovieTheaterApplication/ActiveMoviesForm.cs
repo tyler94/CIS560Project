@@ -18,18 +18,20 @@ namespace MovieTheaterApplication
 
         public ActiveMoviesForm()
         {
+            //Initial Startup code for this form
             InitializeComponent();
             AvailableMovies = true;
             UnavailableMovies = false;
             uxSearchOptionsBox.SelectedIndex = 0;
-
-            Bridge.RetrieveDirectors();
+            CheckSearchType();
         }
 
+        // When the user clicks 'Search'
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
             if (ValidateRadioButtons())
             {
+                // Determine which movies to show (Only Available, Unavailable, or all)
                 Bridge.MoviesToShow moviesToShow;
 
                 if (uxActiveShowings.Checked)
@@ -45,6 +47,7 @@ namespace MovieTheaterApplication
                     moviesToShow = Bridge.MoviesToShow.AllMovies;
                 }
 
+                // Determine how we're searching
                 switch (uxSearchOptionsBox.SelectedIndex)
                 {
                     // None
@@ -84,28 +87,33 @@ namespace MovieTheaterApplication
 
         private void uxAddMovie_Click(object sender, EventArgs e)
         {
+            // Open the AddMovieForm in a new thread
             new Thread(() => new AddMovieForm().ShowDialog()).Start();
         }
 
         private void uxModifyMovieButton_Click(object sender, EventArgs e)
         {
+            // Open the ModifyMovieForm in a new thread
             new Thread(() => new ModifyMovieForm().ShowDialog()).Start();
         }
 
         private void uxAllMovies_CheckedChanged(object sender, EventArgs e)
         {
+            // When the user clicks on 'All Movies'
             AvailableMovies = true;
             UnavailableMovies = true;
         }
 
         private void uxActiveShowings_CheckedChanged(object sender, EventArgs e)
         {
+            // When the user clicks on 'Active Movies'
             AvailableMovies = true;
             UnavailableMovies = false;
         }
 
         private void uxInactiveShowings_CheckedChanged(object sender, EventArgs e)
         {
+            // When the user clicks on 'Inactive Movies'
             AvailableMovies = false;
             UnavailableMovies = true;
         }
@@ -125,6 +133,24 @@ namespace MovieTheaterApplication
             else
             {
                 return true;
+            }
+        }
+        
+        private void uxSearchOptionsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // When the user switches the search types, we need to check if the search box should be enabled or disabled.
+            CheckSearchType();
+        }
+
+        private void CheckSearchType()
+        {
+            if (uxSearchOptionsBox.SelectedIndex == 0)
+            {
+                uxSearchEntry.Enabled = false;
+            }
+            else
+            {
+                uxSearchEntry.Enabled = true;
             }
         }
     }

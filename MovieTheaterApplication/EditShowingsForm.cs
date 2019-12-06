@@ -17,7 +17,9 @@ namespace MovieTheaterApplication
         public EditShowingsForm()
         {
             InitializeComponent();
-            uxExecuteButton.Enabled = false;
+            //uxExecuteButton.Enabled = false;
+            checkBoxes();
+            uxEditTypesBox.SelectedIndex = 2;
         }
 
         //modify or create a viewing 
@@ -47,7 +49,7 @@ namespace MovieTheaterApplication
                 }
                 else if (customerCheck == -1)
                 {
-                    MessageBox.Show("The customer you entered does not exist");
+                    MessageBox.Show("The customer you entered does not exist! Be sure to check the customer type!");
                 }
                 else
                 {
@@ -105,16 +107,88 @@ namespace MovieTheaterApplication
         //Uses fields on form to search for existing showings, the date may be included or excluded from the search
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
-            DateTime viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
-            if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
+            string movieTitle;
             {
-                DateTime dateTime = Convert.ToDateTime(uxShowTimesBox.Text);
-                TimeSpan span = dateTime.TimeOfDay;
-
-                viewedOn += span;
+                if (uxIncludeMovieTitle.Checked)
+                {
+                    if (uxTitleSearchBox.Text == "")
+                    {
+                        MessageBox.Show("Movie Title cannot be blank!");
+                        return;
+                    }
+                    movieTitle = uxTitleSearchBox.Text;
+                }
+                else
+                {
+                    movieTitle = "";
+                }
             }
-            
 
+            string customerName;
+            {
+                if (uxIncludeCustomerName.Checked)
+                {
+                    if (uxCustomerNameBox.Text == "")
+                    {
+                        MessageBox.Show("Customer name cannot be blank!");
+                        return;
+                    }
+                    customerName = uxCustomerNameBox.Text;
+                }
+                else
+                {
+                    customerName = "";
+                }
+            }
+
+            string customerType;
+            {
+                if (uxIncludeCustomerType.Checked)
+                {
+                    if (uxCustomerTypeBox.Text == "")
+                    {
+                        MessageBox.Show("Customer type cannot be blank!");
+                        return;
+                    }
+                    customerType = uxCustomerTypeBox.Text;
+                }
+                else
+                {
+                    customerType = "";
+                }
+            }
+
+            Bridge.ViewingSearchType includeDate;
+            string showingDate;
+            string showingTime;
+            DateTime viewedOn;
+            {
+                if (uxIncludeShowingDateAndTime.Checked)
+                {
+                    showingDate = uxShowDateTimePicker.Value.ToShortDateString();
+                    showingTime = uxShowTimesBox.Text;
+                    includeDate = Bridge.ViewingSearchType.IncludeDate;
+                    viewedOn = Convert.ToDateTime(uxShowDateTimePicker.Text);
+                    if (!String.IsNullOrEmpty(uxShowTimesBox.Text))
+                    {
+                        DateTime dateTime = Convert.ToDateTime(uxShowTimesBox.Text);
+                        TimeSpan span = dateTime.TimeOfDay;
+
+                        viewedOn += span;
+                    }
+                }
+                else
+                {
+                    showingDate = "";
+                    showingTime = "";
+                    includeDate = Bridge.ViewingSearchType.ExcludeDate;
+                    viewedOn = new DateTime();
+                }
+            }
+
+            uxMovieEntries.DataSource = Bridge.SearchForViewing(includeDate, movieTitle, customerName, customerType, viewedOn);
+
+            /*
             switch (uxSearchOptionsBox.SelectedIndex)
             {
                 // None
@@ -131,6 +205,7 @@ namespace MovieTheaterApplication
                     }
             }
             uxExecuteButton.Enabled = true;
+            */
         }
 
         //Populate the form and get/set the active viewingid based on the selected row
@@ -141,6 +216,8 @@ namespace MovieTheaterApplication
             if (uxMovieEntries.SelectedRows.Count == 0)
                 return;
             
+            checkBoxes();
+
             DataGridViewRow selected = uxMovieEntries.SelectedRows[0];
             uxTitleSearchBox.Text = selected.Cells[2].Value.ToString();
             uxCustomerNameBox.Text = selected.Cells[0].Value.ToString();
@@ -189,6 +266,100 @@ namespace MovieTheaterApplication
             {
                 return true;
             }
+        }
+
+        private void uxSearchOptionsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
+        }
+
+        private void uxIncludeMovieTitle_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
+        }
+
+        private void uxIncludeCustomerName_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
+        }
+
+        private void uxIncludeCustomerType_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
+        }
+
+        private void uxIncludeShowingDateAndTime_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
+        }
+
+        private void checkBoxes()
+        {
+            if (uxIncludeMovieTitle.Checked)
+            {
+                uxTitleSearchLabel.Enabled = true;
+                uxTitleSearchBox.Enabled = true;
+            }
+            else
+            {
+                uxTitleSearchLabel.Enabled = false;
+                uxTitleSearchBox.Enabled = false;
+            }
+
+            if (uxIncludeCustomerName.Checked)
+            {
+                uxCustomerNameLabel.Enabled = true;
+                uxCustomerNameBox.Enabled = true;
+            }
+            else
+            {
+                uxCustomerNameLabel.Enabled = false;
+                uxCustomerNameBox.Enabled = false;
+            }
+
+            if (uxIncludeCustomerType.Checked)
+            {
+                uxCustomerTypeLabel.Enabled = true;
+                uxCustomerTypeBox.Enabled = true;
+            }
+            else
+            {
+                uxCustomerTypeLabel.Enabled = false;
+                uxCustomerTypeBox.Enabled = false;
+            }
+
+            if (uxIncludeShowingDateAndTime.Checked)
+            {
+                uxGroupBox.Enabled = true;
+            }
+            else
+            {
+                uxGroupBox.Enabled = false;
+            }
+
+            if (uxEditTypesBox.SelectedIndex != 2 && uxMovieEntries.SelectedRows != null && uxMovieEntries.SelectedRows.Count != 0)
+            {
+                uxIncludeMovieTitle.Checked = true;
+                uxIncludeMovieTitle.Enabled = false;
+                uxIncludeCustomerName.Checked = true;
+                uxIncludeCustomerName.Enabled = false;
+                uxIncludeCustomerType.Checked = true;
+                uxIncludeCustomerType.Enabled = false;
+                uxIncludeShowingDateAndTime.Checked = true;
+                uxIncludeShowingDateAndTime.Enabled = false;
+            }
+            else
+            {
+                uxIncludeMovieTitle.Enabled = true;
+                uxIncludeCustomerName.Enabled = true;
+                uxIncludeCustomerType.Enabled = true;
+                uxIncludeShowingDateAndTime.Enabled = true;
+            }
+        }
+
+        private void uxEditTypesBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxes();
         }
     }
 }
