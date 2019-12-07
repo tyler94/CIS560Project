@@ -1,4 +1,4 @@
 Server=(LocalDb)\560Project
 Database=master
-Username=brandonpugh
-Password=password
+Username=
+Password=
