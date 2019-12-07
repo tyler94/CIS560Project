@@ -15,7 +15,14 @@ Param(
 # Import the SQL Server Module.    
 # Import-Module Sqlps -DisableNameChecking;
 
-Write-Host ""
+Write-Host " "
+Write-Host " "
+Write-Host " "
+Write-Host " "
+Write-Host " "
+Write-Host " "
+Write-Host " "
+Write-Host " "
 Write-Host "Rebuilding database $Database on $Server..."
 
 Write-Host "Dropping tables..."
@@ -72,10 +79,13 @@ Import-Csv -Path csvs\actorsnodups.csv | ForEach-Object {
   Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "insert into Movie.ProductionCompany (CompanyName) VALUES ('$($_.CompanyName)')"
   }
 
-  Write-Host "Populating Movie, MovieGenre, and Cast Tables"
-
+  Write-Host "Populating Movie, MovieGenre, and Cast Tables (Data Stage 1/2)"
+  $status = 0
   Import-Csv -Path csvs\movies.csv | ForEach-Object {
   Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "insert into Movie.Movie (MovieName, ReleaseDate, FilmRating, Length, DirectorId, ProductionCompanyId) VALUES ('$($_.MovieName)','$($_.ReleaseDate)','$($_.FilmRating)', '$($_.duration)', (SELECT DirectorId FROM Movie.Director WHERE FullName = '$($_.director_name)'), (SELECT CompanyId FROM Movie.ProductionCompany WHERE CompanyName = '$($_.production_company)'))"
+	  $global:status++
+	  $i = ($global:status / 44.47).ToString("00.00")
+	  Write-Progress -Id 2 -Activity "Populating Movie, MovieGenre, and Cast Tables (Data Stage 1/2)" -Status "$i% Complete:" -PercentComplete $i;
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.genre1)' <> '') BEGIN insert into Movie.MovieGenre (MovieId, GenreId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT GenreId FROM Movie.Genre WHERE GenreName = '$($_.genre1)'))END"
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.genre2)' <> '') BEGIN insert into Movie.MovieGenre (MovieId, GenreId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT GenreId FROM Movie.Genre WHERE GenreName = '$($_.genre2)'))END"
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.genre3)' <> '') BEGIN insert into Movie.MovieGenre (MovieId, GenreId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT GenreId FROM Movie.Genre WHERE GenreName = '$($_.genre3)'))END"
@@ -89,7 +99,13 @@ Import-Csv -Path csvs\actorsnodups.csv | ForEach-Object {
 	  Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "IF ('$($_.actor_3_name)' <> '') BEGIN insert into Movie.Cast (MovieId, ActorId) VALUES ((SELECT MovieId FROM Movie.Movie WHERE MovieName = '$($_.MovieName)' AND Length = '$($_.duration)' AND ReleaseDate = '$($_.ReleaseDate)'), (SELECT ActorId FROM Movie.Actor WHERE FullName = '$($_.actor_3_name)'))END"
   }
   
+  Write-Host "Populating Viewings Table (Data Stage 2/2)"
+  $global:status = 0
+  
   Import-Csv -Path csvs\viewings.csv | ForEach-Object {
+  $global:status++
+  $i = ($global:status / 1000).ToString("00.00")
+  Write-Progress -Id 2 -Activity "Populating Viewings Table (Data Stage 2/2)" -Status "$i% Complete:" -PercentComplete $i;
   Invoke-SqlCmd -ServerInstance $Server -Database $Database -Query "insert into Movie.Viewing (MovieId, CustomerId, ViewedOn) VALUES ('$($_.MovieId)', '$($_.CustomerId)', '$($_.ViewedOn)')"
   }
 
